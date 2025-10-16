@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "opportunities": "Opportunities",
+    "sectors": "Sectors",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Invest in Saudi Arabia's Future",
+    "subtitle": "Discover endless opportunities in one of the world's fastest-growing economies",
+    "cta": "Explore Opportunities",
+    "learn_more": "Learn More"
+  },
+  "features": {
+    "title": "Why Invest in Saudi Arabia",
+    "strategic_location": {
+      "title": "Strategic Location",
+      "description": "Gateway to Middle East, Africa, and Asia markets with access to over 3 billion consumers"
+    },
+    "economic_growth": {
+      "title": "Strong Economic Growth",
+      "description": "Diversified economy with Vision 2030 driving sustainable development and innovation"
+    },
+    "business_friendly": {
+      "title": "Business-Friendly Environment",
+      "description": "Streamlined processes, 100% foreign ownership, and competitive tax incentives"
+    },
+    "infrastructure": {
+      "title": "World-Class Infrastructure",
+      "description": "Modern transportation, logistics, and digital infrastructure supporting business growth"
+    }
+  },
+  "sectors": {
+    "title": "Key Investment Sectors",
+    "energy": "Energy & Renewables",
+    "tourism": "Tourism & Entertainment",
+    "technology": "Technology & Innovation",
+    "manufacturing": "Manufacturing & Industry",
+    "healthcare": "Healthcare & Biotech",
+    "finance": "Finance & Banking"
+  },
+  "stats": {
+    "gdp": "GDP Growth",
+    "projects": "Active Projects",
+    "investors": "International Investors",
+    "opportunities": "Investment Opportunities"
+  },
+  "cta": {
+    "title": "Ready to Start Your Journey?",
+    "description": "Join thousands of successful investors who chose Saudi Arabia as their investment destination",
+    "button": "Get Started Today"
+  },
+  "opportunities": {
+    "title": "Explore Regional Investment Opportunities",
+    "key_figures": "Key Figures",
+    "giga_projects": "Giga Projects",
+    "opportunities_section": "Opportunities",
+    "view_more": "View More",
+    "vs_last_year": "VS Last Year",
+    "regions": {
+      "riyadh": "Riyadh",
+      "makkah": "Makkah",
+      "eastern": "Eastern Province"
+    },
+    "stats": {
+      "gdp_ranking": "Global GDP Ranking",
+      "private_sector": "Private Sector Contribution",
+      "logistics": "Logistics Performance Index",
+      "fdi": "(FDI) Share Of GDP"
+    },
+    "projects": {
+      "advanced_manufacturing": "Advanced Manufacturing",
+      "aerospace_defense": "Aerospace & Defense",
+      "agriculture_food": "Agriculture & Food",
+      "tourism_development": "Tourism Development",
+      "infrastructure": "Infrastructure",
+      "hospitality": "Hospitality",
+      "energy_oil": "Energy & Oil",
+      "petrochemicals": "Petrochemicals",
+      "logistics_hub": "Logistics Hub",
+      "religious_tourism": "Religious Tourism",
+      "real_estate": "Real Estate",
+      "smart_cities": "Smart Cities",
+      "industrial_parks": "Industrial Parks",
+      "port_development": "Port Development",
+      "technology_sector": "Technology Sector"
+    }
+  },
+  "footer": {
+    "about_text": "Saudi Arabia's official investment platform, connecting global investors with opportunities in the Kingdom",
+    "quick_links": "Quick Links",
+    "resources": "Resources",
+    "contact_us": "Contact Us",
+    "rights": "All rights reserved"
+  }
+}
+
