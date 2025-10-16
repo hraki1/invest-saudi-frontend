@@ -4,37 +4,15 @@ export default function Destination() {
   const [activeTab, setActiveTab] = useState<'rankings' | 'macroeconomic'>('rankings');
 
   return (
-    <section className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
+    <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Decorative Map Pattern - Right Side */}
       <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-40 pointer-events-none hidden lg:block">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 700 900" preserveAspectRatio="xMaxYMid meet">
-          {/* Dotted Map Pattern */}
-          <defs>
-            <pattern id="dots" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1.2" fill="#0066CC" opacity="0.5"/>
-            </pattern>
-          </defs>
-          
-          {/* Main map shape with dots - representing continents */}
-          <ellipse cx="450" cy="300" rx="180" ry="250" fill="url(#dots)"/>
-          <ellipse cx="350" cy="450" rx="140" ry="180" fill="url(#dots)"/>
-          
-          {/* Curved connection lines */}
-          <path d="M 100,150 Q 300,200 500,120" stroke="#0066CC" strokeWidth="2.5" fill="none" opacity="0.5"/>
-          <path d="M 80,250 Q 320,320 520,240" stroke="#0066CC" strokeWidth="2.5" fill="none" opacity="0.5"/>
-          <path d="M 120,350 Q 340,430 540,360" stroke="#0066CC" strokeWidth="2.5" fill="none" opacity="0.5"/>
-          <path d="M 150,480 Q 360,550 550,490" stroke="#0066CC" strokeWidth="2.5" fill="none" opacity="0.5"/>
-          <path d="M 180,600 Q 380,660 560,610" stroke="#0066CC" strokeWidth="2" fill="none" opacity="0.4"/>
-          
-          {/* Additional decorative curves */}
-          <path d="M 200,120 Q 400,80 580,140" stroke="#0066CC" strokeWidth="2" fill="none" opacity="0.4"/>
-          <path d="M 220,700 Q 400,740 580,700" stroke="#0066CC" strokeWidth="1.5" fill="none" opacity="0.3"/>
-        </svg>
+      <img src="/destination-hero.png" alt="Destination Map" className="w-full h-full object-cover" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10 max-w-7xl">
         {/* Title with dotted border */}
-        <div className="border-t-[3px] border-dotted border-blue-500 pt-10 mb-8">
+        <div className=" pt-10 mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light text-gray-900 mb-10 leading-tight">
             The 'Ideal Investment Destination'
           </h2>
@@ -72,8 +50,8 @@ export default function Destination() {
 
         {/* Content */}
         {activeTab === 'rankings' && (
-          <div className="bg-white border-[3px] border-dotted border-blue-400 p-8 md:p-12 lg:pr-[45%]">
-            {/* Business Environment Section */}
+            <div className=" p-8 md:p-12 lg:pr-[45%]">
+              {/* Business Environment Section */}
             <div>
               <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-2">
                 Business Environment
