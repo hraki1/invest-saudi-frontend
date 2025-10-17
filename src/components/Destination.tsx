@@ -70,7 +70,7 @@ export default function Destination() {
           number: "24",
           suffix: "th",
           description: "In Economic Performance In 2025",
-          bgColor: "bg-white",
+          bgColor: " bg-[#ECE4F0]",
           borderColor: "border-gray-200"
         }
       ]
@@ -118,9 +118,9 @@ export default function Destination() {
   ];
 
   return (
-    <section className="relative py-12 md:py-14 overflow-hidden">
+    <section className="relative py-12 md:py-10 overflow-hidden">
       {/* Decorative Map Pattern - Right Side */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-90 pointer-events-none hidden lg:block">
+      <div className="absolute right-0 top-0 bottom-0 w-[45%] opacity-90 pointer-events-none hidden lg:block">
         <img
           src="/destination-hero.png"
           alt="Destination Map"
@@ -131,7 +131,7 @@ export default function Destination() {
       <div className="container mx-auto px-3 md:px-4 relative z-10">
         {/* Title with dotted border */}
         <div className="pt-3 md:pt-5 mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light text-gray-900 mb-10 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-[62px] font-light text-gray-900 mb-10 leading-tight">
             The 'Ideal Investment Destination'
           </h2>
 
@@ -147,7 +147,7 @@ export default function Destination() {
             >
               Global Rankings
               {activeTab === "rankings" && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-blue-600"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#00A7A2]"></div>
               )}
             </button>
             <button
@@ -160,7 +160,7 @@ export default function Destination() {
             >
               Macroeconomic Overview
               {activeTab === "macroeconomic" && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-blue-600"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#00A7A2]"></div>
               )}
             </button>
           </div>
@@ -171,15 +171,15 @@ export default function Destination() {
           <div className=" p-3 md:p-5 lg:pr-[35%]">
             {/* Business Environment Section */}
             <div>
-              <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-2">
+              <h3 className="text-2xl md:text-[43px] font-semibold text-gray-900 mb-2">
                 Business Environment
               </h3>
-              <p className="text-gray-500 text-lg mb-10">
+              <p className="text-gray-500 text-lg mb-3">
                 Rankings And Performance On Business Environment Rankings
               </p>
 
               {/* Top 3 Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
                 {topStats.map((stat) => (
                   <div
                     key={stat.id}
@@ -211,8 +211,8 @@ export default function Destination() {
 
               {/* World Competitiveness Ranking */}
               <div>
-                <div className="flex flex-col items-baseline gap-3 mb-8">
-                  <span className="text-5xl font-light text-gray-900">
+                <div className="flex flex-col items-baseline gap-2 mb-3">
+                  <span className="text-[43px] font-semibold text-gray-900">
                     17th
                   </span>
                   <p className="text-gray-600 text-lg">
@@ -221,9 +221,9 @@ export default function Destination() {
                 </div>
 
                 {/* 4 Pillars Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   {pillars.map((pillar) => (
-                    <div className="p-3 border border-gray-200 rounded-xl" key={pillar.id}>
+                    <div className=" bg-white p-3 border border-gray-200 rounded-xl" key={pillar.id}>
                       <div className="text-base text-gray-400 mb-3 font-normal">
                         {pillar.title}
                       </div>

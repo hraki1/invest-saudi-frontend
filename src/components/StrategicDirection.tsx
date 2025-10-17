@@ -70,7 +70,7 @@ export default function StrategicDirection() {
       items: [
         {
           icon: (
-            <img src="/icons/globe.png" alt="Economy" className="w-6 h-6" />
+            <img src="/icons/globe.png" alt="Economy" className="w-full h-full" />
           ),
           text: "World's fastest-growing G20 economy, positioned as a global logistics",
         },
@@ -79,7 +79,7 @@ export default function StrategicDirection() {
             <img
               src="/icons/cash-02.png"
               alt="Investment"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Over $2+ Trillion in opportunities driven by Vision 2030 megaprojects",
@@ -89,7 +89,7 @@ export default function StrategicDirection() {
             <img
               src="/icons/globe.png"
               alt="Market Access"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Global market access with tariff-free trade to 17 Arab countries",
@@ -99,7 +99,7 @@ export default function StrategicDirection() {
             <img
               src="/icons/catalogue.png"
               alt="Ecosystem"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Pro-investor ecosystem with 100% foreign ownership and regulatory",
@@ -109,7 +109,7 @@ export default function StrategicDirection() {
             <img
               src="/icons/coins-01.png"
               alt="Incentives"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Government contracts and tax incentives through the RHQ program",
@@ -123,13 +123,13 @@ export default function StrategicDirection() {
       items: [
         {
           icon: (
-            <img src="/icons/city-01.png" alt="Tourism" className="w-6 h-6" />
+            <img src="/icons/city-01.png" alt="Tourism" className="w-full h-full" />
           ),
           text: "Targeting 100M annual tourist visits by 2030 as a top global ",
         },
         {
           icon: (
-            <img src="/icons/catalogue.png" alt="Culture" className="w-6 h-6" />
+            <img src="/icons/catalogue.png" alt="Culture" className="w-full h-full" />
           ),
           text: "Cultural renaissance with UNESCO sites and entertainment initiatives",
         },
@@ -138,7 +138,7 @@ export default function StrategicDirection() {
             <img
               src="/icons/city-01.png"
               alt="Quality of Life"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Modern infrastructure and world-class amenities improving quality of",
@@ -148,16 +148,16 @@ export default function StrategicDirection() {
             <img
               src="/icons/catalogue.png"
               alt="Education"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Investment in education, healthcare, and sports creating vibrant ",
         },
         {
           icon: (
-            <img src="/icons/city-01.png" alt="Social" className="w-6 h-6" />
+            <img src="/icons/city-01.png" alt="Social" className="w-full h-full" />
           ),
-          text: "Social development programs enhancing citizen wellbeing and happiness",
+          text: "Social development programs enhancing citizen wellbeing ",
         },
       ],
     },
@@ -169,7 +169,7 @@ export default function StrategicDirection() {
             <img
               src="/icons/globe.png"
               alt="Competitiveness"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Targeting top 5 global competitiveness through comprehensive",
@@ -179,25 +179,25 @@ export default function StrategicDirection() {
             <img
               src="/icons/city-01.png"
               alt="Giga Projects"
-              className="w-6 h-6"
+              className="w-full h-full"
             />
           ),
           text: "Ambitious giga-projects like NEOM and Qiddiya reshaping the ",
         },
         {
           icon: (
-            <img src="/icons/catalogue.png" alt="Digital" className="w-6 h-6" />
+            <img src="/icons/catalogue.png" alt="Digital" className="w-full h-full" />
           ),
           text: "Digital transformation driving government efficiency and services",
         },
         {
           icon: (
-            <img src="/icons/coins-01.png" alt="SMEs" className="w-6 h-6" />
+            <img src="/icons/coins-01.png" alt="SMEs" className="w-full h-full" />
           ),
           text: "Supporting SMEs to contribute significantly to GDP growth and",
         },
         {
-          icon: <img src="/icons/globe.png" alt="Energy" className="w-6 h-6" />,
+          icon: <img src="/icons/globe.png" alt="Energy" className="w-full h-full" />,
           text: "Renewable energy leadership with ambitious clean energy",
         },
       ],
@@ -224,7 +224,7 @@ export default function StrategicDirection() {
         </h2>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-10 mb-16">
           {/* Left Column: Vision Quote & Crown Prince - 4 columns */}
           <div className="lg:col-span-4 space-y-6">
             {/* Vision Quote */}
@@ -294,45 +294,26 @@ export default function StrategicDirection() {
             </div>
 
             {/* Tabs/Pillars */}
-            <div className="space-y-3 md:space-y-4">
-              <button
-                onClick={() => setActiveTab("economy")}
-                className={`w-full text-left relative pl-6 border-l-4 transition-all duration-300 py-3 md:py-4 ${
-                  activeTab === "economy"
-                    ? "border-cyan-400 bg-cyan-400/10"
-                    : "border-cyan-600/30 hover:border-cyan-400/60 hover:bg-cyan-400/5"
-                }`}
-              >
-                <h3 className="text-white font-light text-base md:text-lg lg:text-xl">
-                  A Thriving Economy
-                </h3>
-              </button>
-
-              <button
-                onClick={() => setActiveTab("society")}
-                className={`w-full text-left relative pl-6 border-l-4 transition-all duration-300 py-3 md:py-4 ${
-                  activeTab === "society"
-                    ? "border-cyan-400 bg-cyan-400/10"
-                    : "border-cyan-600/30 hover:border-cyan-400/60 hover:bg-cyan-400/5"
-                }`}
-              >
-                <h3 className="text-white font-light text-base md:text-lg lg:text-xl">
-                  A Vibrant Society
-                </h3>
-              </button>
-
-              <button
-                onClick={() => setActiveTab("nation")}
-                className={`w-full text-left relative pl-6 border-l-4 transition-all duration-300 py-3 md:py-4 ${
-                  activeTab === "nation"
-                    ? "border-cyan-400 bg-cyan-400/10"
-                    : "border-cyan-600/30 hover:border-cyan-400/60 hover:bg-cyan-400/5"
-                }`}
-              >
-                <h3 className="text-white font-light text-base md:text-lg lg:text-xl">
-                  An Ambitious Nation
-                </h3>
-              </button>
+            <div className="space-y-3 md:space-y-4 -mr-10">
+              {[
+                { id: "economy", title: "A Thriving Economy" },
+                { id: "society", title: "A Vibrant Society" },
+                { id: "nation", title: "An Ambitious Nation" }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as "economy" | "society" | "nation")}
+                  className={`w-full text-left relative pl-6 border-l-4 transition-all duration-300 py-3 md:py-5 ${
+                    activeTab === tab.id
+                      ? "border-[#00A7A2] bg-black/20 backdrop-blur-xl"
+                      : "border-none hover:border-cyan-400/60 hover:bg-cyan-400/5"
+                  }`}
+                >
+                  <h3 className="text-white font-light text-base md:text-lg lg:text-2xl">
+                    {tab.title}
+                  </h3>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -347,10 +328,10 @@ export default function StrategicDirection() {
                 {tabContent[activeTab].items.map((item, idx) => (
                   <div key={idx}>
                     <div className="flex gap-4 animate-fade-in">
-                      <div className="w-12 h-12 flex-shrink-0 rounded-lg bg-cyan-500/10 flex items-center justify-center border border-cyan-500/30">
+                      <div className="w-10 h-10 flex-shrink-0 rounded-lg flex items-center justify-center ">
                         {item.icon}
                       </div>
-                      <p className="text-white/80 text-base md:text-xl leading-relaxed">
+                      <p className="text-white/80 text-base md:text-lg leading-relaxed">
                         {item.text}
                       </p>
                     </div>
@@ -371,7 +352,7 @@ export default function StrategicDirection() {
           <Swiper
             modules={[Navigation, Autoplay, Pagination, Autoplay]}
             spaceBetween={20}
-            // slidesPerView="auto"
+            slidesPerView="auto"
             speed={900}
 
             navigation={true}
