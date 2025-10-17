@@ -118,7 +118,7 @@ export default function Destination() {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-12 md:py-14 overflow-hidden">
       {/* Decorative Map Pattern - Right Side */}
       <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-90 pointer-events-none hidden lg:block">
         <img
@@ -130,7 +130,7 @@ export default function Destination() {
 
       <div className="container mx-auto px-3 md:px-4 relative z-10">
         {/* Title with dotted border */}
-        <div className=" pt-10 mb-8">
+        <div className="pt-3 md:pt-5 mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-light text-gray-900 mb-10 leading-tight">
             The 'Ideal Investment Destination'
           </h2>
@@ -168,7 +168,7 @@ export default function Destination() {
 
         {/* Content */}
         {activeTab === "rankings" && (
-          <div className=" p-8 md:p-12 lg:pr-[30%]">
+          <div className=" p-3 md:p-5 lg:pr-[35%]">
             {/* Business Environment Section */}
             <div>
               <h3 className="text-2xl md:text-3xl font-normal text-gray-900 mb-2">
@@ -210,7 +210,7 @@ export default function Destination() {
               </div>
 
               {/* World Competitiveness Ranking */}
-              <div className="mb-8">
+              <div>
                 <div className="flex flex-col items-baseline gap-3 mb-8">
                   <span className="text-5xl font-light text-gray-900">
                     17th

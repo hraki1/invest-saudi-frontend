@@ -1,50 +1,5 @@
 @import "tailwindcss";
-
-:root {
-  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* RTL Support */
-[dir="rtl"] {
-  direction: rtl;
-}
-
-[dir="ltr"] {
-  direction: ltr;
-}
-
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
-}
-
-/* Smooth transitions for RTL/LTR switch */
-* {
-  transition: margin 0.3s ease, padding 0.3s ease;
-}
+@import "swiper/css";
 
 /* Hide scrollbar for horizontal scroll */
 .scrollbar-hide {
@@ -54,4 +9,35 @@ html {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Custom Swiper Styles */
+.stats-swiper .swiper-button-next,
+.stats-swiper .swiper-button-prev {
+  color: #06b6d4; /* cyan-500 */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  display: none;
+}
+
+.stats-swiper .swiper-button-next:after,
+.stats-swiper .swiper-button-prev:after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.stats-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+.stats-swiper .swiper-pagination-bullet-active {
+  background: #06b6d4; /* cyan-500 */
+}
+
+.stats-swiper .swiper-pagination {
+  bottom: -10px;
 }

@@ -1,9 +1,68 @@
 import { useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Swiper styles will be added to CSS file
 
 export default function StrategicDirection() {
   const [activeTab, setActiveTab] = useState<"economy" | "society" | "nation">(
     "economy"
   );
+
+  const statsData = [
+    {
+      id: 1,
+      icon: "📈",
+      value: "1.8%",
+      description: "Real GDP Growth in 2024",
+    },
+    {
+      id: 2,
+      icon: "💰",
+      value: "24%",
+      description: "in YoY FDI inflows growth in 2024",
+    },
+    {
+      id: 3,
+      icon: "⭐",
+      value: "A+",
+      description: "Sovereign credit rating (S&P)",
+    },
+    {
+      id: 4,
+      icon: "🚀",
+      value: "30.4%",
+      description: "Non-oil export growth YoY Jul 2025",
+    },
+    {
+      id: 1,
+      title: "Pro-investor ecosystem",
+      value: "24%",
+
+      description: "Comprehensive support system for international investors"
+    },
+    {
+      id: 2,
+      title: "Significant tax incentives",
+      value: "24%",
+
+      description: "Attractive tax benefits and exemptions for investors"
+    },
+    {
+      id: 3,
+      title: "Tax Laws & Regulations",
+      value: "24%",
+
+      description: "Clear and transparent tax framework"
+    },
+    {
+      id: 4,
+      title: "Investment Law",
+      value: "24%",
+      description: "Robust legal framework protecting investor rights"
+    }
+  ];
+
 
   const tabContent = {
     economy: {
@@ -56,6 +115,8 @@ export default function StrategicDirection() {
           text: "Government contracts and tax incentives through the RHQ program",
         },
       ],
+
+      
     },
     society: {
       title: "Saudi as an Investment Destination",
@@ -206,7 +267,6 @@ export default function StrategicDirection() {
             {/* Vision 2030 Logo */}
             <div className="mb-8 lg:mb-12 text-center ">
               <div className="inline-block">
-              
                 <div className="relative inline-block">
                   <img
                     src="/vision.png"
@@ -221,7 +281,10 @@ export default function StrategicDirection() {
                     />
                   </div>
                 </div>
-                <div style={{fontFamily:'system-ui'}} className="text-white text-[20px] tracking-wide font-medium">
+                <div
+                  style={{ fontFamily: "system-ui" }}
+                  className="text-white text-[20px] tracking-wide font-medium"
+                >
                   المملكة العربية السعودية
                 </div>
                 <div className="text-white text-[14px] tracking-wider font-medium">
@@ -302,56 +365,39 @@ export default function StrategicDirection() {
         </div>
       </div>
 
-      {/* Bottom Stats Bar - Scrollable */}
-      <div className="border-t-2 border-dotted border-cyan-400/50 relative z-10">
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="container mx-auto px-6 md:px-12 lg:px-20 py-4">
-            <div className="flex items-center gap-6 md:gap-8 lg:gap-12 min-w-max lg:min-w-0 justify-start lg:justify-between">
-              {/* Stat 1 */}
-              <div className="flex items-center gap-3">
-                <span className="text-white text-xl">﷼</span>
-                <span className="text-cyan-400 text-xl font-semibold whitespace-nowrap">
-                  1.8%
-                </span>
-                <span className="text-white text-sm whitespace-nowrap">
-                  Real GDP Growth In 2024
-                </span>
-              </div>
+      {/* Bottom Stats Bar - Swiper */}
+      <div className="bg-black/30 backdrop-blur-sm px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="py-4">
+          <Swiper
+            modules={[Navigation, Autoplay, Pagination, Autoplay]}
+            spaceBetween={20}
+            // slidesPerView="auto"
+            speed={900}
 
-              {/* Stat 2 */}
-              <div className="flex items-center gap-3">
-                <span className="text-white text-xl">﷼</span>
-                <span className="text-cyan-400 text-xl font-semibold whitespace-nowrap">
-                  24%
-                </span>
-                <span className="text-white text-sm whitespace-nowrap">
-                  In YoY FDI Inflows Growth In 2024
-                </span>
-              </div>
-
-              {/* Stat 3 */}
-              <div className="flex items-center gap-3">
-                <span className="text-white text-xl">﷼</span>
-                <span className="text-cyan-400 text-xl font-semibold whitespace-nowrap">
-                  A+
-                </span>
-                <span className="text-white text-sm whitespace-nowrap">
-                  Sovereign Credit Rating (S&P)
-                </span>
-              </div>
-
-              {/* Stat 4 */}
-              <div className="flex items-center gap-3">
-                <span className="text-white text-xl">﷼</span>
-                <span className="text-cyan-400 text-xl font-semibold whitespace-nowrap">
-                  30.4%
-                </span>
-                <span className="text-white text-sm whitespace-nowrap">
-                  Non-Oil Export Growth
-                </span>
-              </div>
-            </div>
-          </div>
+            navigation={true}
+            pagination={{ clickable: true }}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            className="stats-swiper cursor-grab select-none"
+          >
+            {statsData.map((stat) => (
+              <SwiperSlide key={stat.id} className="!w-auto">
+                <div className="flex items-center gap-5">
+                  <img src="/icons/saudi-tree.png" alt="" className="w-6 h-6" />
+                  <div className="flex items-center gap-2">
+                    <span className="text-cyan-400 text-xl font-semibold whitespace-nowrap">
+                      {stat.value}
+                    </span>
+                    <span className="text-white text-sm whitespace-nowrap">
+                      {stat.description}
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
