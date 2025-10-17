@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Opportunities() {
   const { t } = useTranslation();
-  const [selectedRegion, setSelectedRegion] = useState('riyadh');
 
   const regionData = {
     riyadh: {
@@ -119,10 +117,20 @@ export default function Opportunities() {
     }
   };
 
-  const currentData = regionData[selectedRegion as keyof typeof regionData];
+  const currentData = regionData['riyadh'];
 
   return (
-    <section className="relative py-16 md:py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 overflow-hidden">
+    <section className="relative py-16 md:py-20  overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/opportunities-hero.png"
+          alt="Opportunities Background" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 "></div>
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -133,7 +141,7 @@ export default function Opportunities() {
 
       <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         {/* Title with dotted border */}
-        <div className="border-t-4 border-dotted border-cyan-400 pt-8 mb-12">
+        <div className="pt-8 mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white">
             {t('opportunities.title')}
           </h2>
@@ -145,147 +153,7 @@ export default function Opportunities() {
           <div className="relative">
             <div className="relative w-full h-[500px] flex items-center justify-center">
               {/* Saudi Arabia Map SVG */}
-              <svg viewBox="0 0 800 600" className="w-full h-full">
-                {/* Main country border */}
-                <path
-                  d="M 150,150 L 200,120 L 280,110 L 350,115 L 420,125 L 490,145 L 560,180 L 620,230 L 660,280 L 680,330 L 685,380 L 670,430 L 640,460 L 590,480 L 520,490 L 450,485 L 380,470 L 310,450 L 250,420 L 200,380 L 160,330 L 140,270 L 135,210 Z"
-                  fill="#0f172a"
-                  stroke="#1e293b"
-                  strokeWidth="3"
-                  opacity="0.8"
-                />
-
-                {/* Makkah Region (West) */}
-                <g 
-                  className="cursor-pointer transition-all duration-300 hover:opacity-90" 
-                  onClick={() => setSelectedRegion('makkah')}
-                >
-                  <path
-                    d="M 150,150 L 200,180 L 230,240 L 240,300 L 230,350 L 200,380 L 160,330 L 140,270 L 135,210 Z"
-                    fill={selectedRegion === 'makkah' ? '#14b8a6' : '#1e293b'}
-                    stroke={selectedRegion === 'makkah' ? '#0d9488' : '#334155'}
-                    strokeWidth="2"
-                    opacity={selectedRegion === 'makkah' ? '0.95' : '0.6'}
-                  />
-                  {selectedRegion === 'makkah' && (
-                    <g opacity="0.25">
-                      {[...Array(10)].map((_, row) => (
-                        [...Array(6)].map((_, col) => (
-                          <circle
-                            key={`makkah-${row}-${col}`}
-                            cx={160 + col * 15}
-                            cy={170 + row * 20}
-                            r="1.5"
-                            fill="white"
-                          />
-                        ))
-                      ))}
-                    </g>
-                  )}
-                  {selectedRegion === 'makkah' && (
-                    <g>
-                      <rect x="160" y="250" width="75" height="28" rx="14" fill="white" />
-                      <text x="197" y="269" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0d9488">
-                        {t('opportunities.regions.makkah')}
-                      </text>
-                    </g>
-                  )}
-                </g>
-
-                {/* Riyadh Region (Center) */}
-                <g 
-                  className="cursor-pointer transition-all duration-300 hover:opacity-90" 
-                  onClick={() => setSelectedRegion('riyadh')}
-                >
-                  <path
-                    d="M 280,200 L 360,190 L 420,200 L 460,240 L 480,300 L 475,360 L 450,410 L 400,440 L 340,450 L 280,440 L 240,400 L 230,350 L 240,300 L 250,250 Z"
-                    fill={selectedRegion === 'riyadh' ? '#14b8a6' : '#1e293b'}
-                    stroke={selectedRegion === 'riyadh' ? '#0d9488' : '#334155'}
-                    strokeWidth="2"
-                    opacity={selectedRegion === 'riyadh' ? '0.95' : '0.6'}
-                  />
-                  {selectedRegion === 'riyadh' && (
-                    <g opacity="0.25">
-                      {[...Array(12)].map((_, row) => (
-                        [...Array(10)].map((_, col) => (
-                          <circle
-                            key={`riyadh-${row}-${col}`}
-                            cx={260 + col * 20}
-                            cy={220 + row * 20}
-                            r="1.5"
-                            fill="white"
-                          />
-                        ))
-                      ))}
-                    </g>
-                  )}
-                  {selectedRegion === 'riyadh' && (
-                    <g>
-                      <rect x="320" y="315" width="70" height="28" rx="14" fill="white" />
-                      <text x="355" y="334" textAnchor="middle" fontSize="13" fontWeight="600" fill="#0d9488">
-                        {t('opportunities.regions.riyadh')}
-                      </text>
-                    </g>
-                  )}
-                </g>
-
-                {/* Eastern Province */}
-                <g 
-                  className="cursor-pointer transition-all duration-300 hover:opacity-90" 
-                  onClick={() => setSelectedRegion('eastern')}
-                >
-                  <path
-                    d="M 480,200 L 560,180 L 620,230 L 660,280 L 680,330 L 685,380 L 665,420 L 640,460 L 590,480 L 520,490 L 475,470 L 450,410 L 460,340 L 470,280 L 475,240 Z"
-                    fill={selectedRegion === 'eastern' ? '#14b8a6' : '#1e293b'}
-                    stroke={selectedRegion === 'eastern' ? '#0d9488' : '#334155'}
-                    strokeWidth="2"
-                    opacity={selectedRegion === 'eastern' ? '0.95' : '0.6'}
-                  />
-                  {selectedRegion === 'eastern' && (
-                    <g opacity="0.25">
-                      {[...Array(12)].map((_, row) => (
-                        [...Array(10)].map((_, col) => (
-                          <circle
-                            key={`eastern-${row}-${col}`}
-                            cx={510 + col * 18}
-                            cy={230 + row * 22}
-                            r="1.5"
-                            fill="white"
-                          />
-                        ))
-                      ))}
-                    </g>
-                  )}
-                  {selectedRegion === 'eastern' && (
-                    <g>
-                      <rect x="540" y="330" width="105" height="28" rx="14" fill="white" />
-                      <text x="592" y="349" textAnchor="middle" fontSize="12" fontWeight="600" fill="#0d9488">
-                        {t('opportunities.regions.eastern')}
-                      </text>
-                    </g>
-                  )}
-                </g>
-
-                {/* Northern regions (decorative) */}
-                <path
-                  d="M 200,120 L 280,110 L 350,115 L 380,135 L 360,170 L 320,180 L 270,175 L 220,160 Z"
-                  fill="#0f172a"
-                  stroke="#1e5062"
-                  strokeWidth="1"
-                  opacity="0.4"
-                  className="cursor-pointer hover:opacity-60 transition-opacity"
-                />
-
-                {/* Southern regions (decorative) */}
-                <path
-                  d="M 250,420 L 310,450 L 380,470 L 450,485 L 480,475 L 475,470 L 400,440 L 340,450 L 280,440 Z"
-                  fill="#0f172a"
-                  stroke="#1e5062"
-                  strokeWidth="1"
-                  opacity="0.4"
-                  className="cursor-pointer hover:opacity-60 transition-opacity"
-                />
-              </svg>
+             <img src="/saudi-map.png" alt="" />
             </div>
           </div>
 
