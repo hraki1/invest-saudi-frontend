@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import CounterNumber from "./CounterNumber";
 
 export default function Opportunities() {
   const { t } = useTranslation();
@@ -8,25 +9,29 @@ export default function Opportunities() {
       name: t("opportunities.regions.riyadh"),
       keyFigures: [
         {
-          value: "936 B",
+          value: "936",
+          suffix: "B",
           label: t("opportunities.stats.gdp_ranking"),
           change: "100%",
           trend: "up",
         },
         {
-          value: "47%",
+          value: "47",
+          suffix: "%",
           label: t("opportunities.stats.private_sector"),
           change: "100%",
           trend: "up",
         },
         {
-          value: "38 th",
+          value: "38",
+          suffix: "th",
           label: t("opportunities.stats.logistics"),
           change: "100%",
           trend: "up",
         },
         {
-          value: "2.4%",
+          value: "2.4",
+          suffix: "%",
           label: t("opportunities.stats.fdi"),
           change: "100%",
           trend: "up",
@@ -247,9 +252,14 @@ export default function Opportunities() {
                     style={{ boxShadow: "0 0 1px 0 rgba(255, 255, 255,1)" }}
                   >
                     <div className="flex items-start justify-between mb-2">
-                      <div className="text-2xl md:text-[43px] font-light text-white">
-                        {stat.value}
-                      </div>
+                      <CounterNumber
+                        value={stat.value}
+                        suffix={stat.suffix}
+                        animationDuration={0.8}
+                        className="text-2xl md:text-[43px] font-light text-white"
+                        suffixClassName="text-2xl md:text-[43px] font-light text-white px-1"
+                        enableScaleAnimation={true}
+                      />
                       <div className="flex flex-col items-center gap-1 text-xs text-[#00A7A2]">
                         <div className="flex items-center gap-1">
                           <img

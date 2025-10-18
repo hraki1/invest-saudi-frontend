@@ -7,10 +7,11 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Invest in Saudi Arabia's Future",
-    "subtitle": "Discover endless opportunities in one of the world's fastest-growing economies",
-    "cta": "Explore Opportunities",
-    "learn_more": "Learn More"
+    "title": "Unlock Investment Opportunities In Saudi Arabia.",
+    "subtitle": "Explore sectors, services, and partners – all in one platform.",
+    "explore_sectors": "Explore Sectors",
+    "e_services": "E-Services",
+    "e_consulting": "E-Consulting"
   },
   "features": {
     "title": "Why Invest in Saudi Arabia",
@@ -93,6 +94,105 @@
     "resources": "Resources",
     "contact_us": "Contact Us",
     "rights": "All rights reserved"
+  },
+  "navbar": {
+    "awareness": "Awareness",
+    "explore_saudi": "Explore Saudi",
+    "our_setup": "Our Setup",
+    "news_events": "News & Events",
+    "contact_us": "Contact Us",
+    "search": "Search"
+  },
+  "key_strategies": {
+    "title": "Overview Of Key National Strategies",
+    "vibrant_society": "Vibrant Society",
+    "thriving_economy": "Thriving Economy",
+    "ambitious_nation": "Ambitious Nation",
+    "national_investment": "National Investment Strategy",
+    "gaming_esports": "National Gaming and Esports Strategy",
+    "industrial_strategy": "National Industrial Strategy",
+    "real_estate": "Real Estate Sector Strategy and Other",
+    "vision_programs": "Vision Programs",
+    "vision_programs_desc": "The NIS Is One Of The Main Enablers To Vision 2030, Via A Comprehensive Package Of Reforms To The National Investment System",
+    "vision_projects": "Vision Projects",
+    "vision_projects_desc": "Major giga-projects transforming Saudi Arabia",
+    "goals": "Goals",
+    "goals_desc": "Strategic objectives aligned with Vision 2030",
+    "pillar": "Pillar",
+    "pillar_desc": "Core pillars supporting national transformation",
+    "sectors": "Sectors",
+    "sectors_desc": "Key economic sectors driving growth",
+    "latest_progress": "Latest Strategic Progress",
+    "latest_progress_desc": "Recent achievements and milestones"
+  },
+  "strategic_direction": {
+    "title": "KSA's Strategic Direction",
+    "vision_quote": "Our Vision is a strong, thriving, and stable Saudi Arabia that provides opportunity for all. Our Vision is a tolerant country with Islam as its constitution and moderation as its method. We will welcome qualified individuals from all over the world and will respect those who have come to join our journey and our success.",
+    "crown_prince": "HRH Mohammed bin Salman Crown",
+    "crown_prince_title": "Prince, Prime Minister, and Chairman of the Council of Economic and Development Affairs",
+    "saudi_arabia_ar": "المملكة العربية السعودية",
+    "kingdom_eng": "KINGDOM OF SAUDI ARABIA",
+    "thriving_economy": "A Thriving Economy",
+    "vibrant_society": "A Vibrant Society",
+    "ambitious_nation": "An Ambitious Nation",
+    "investment_destination": "Saudi as an Investment Destination",
+    "economy_items": {
+      "item1": "World's fastest-growing G20 economy, positioned as a global logistics",
+      "item2": "Over $2+ Trillion in opportunities driven by Vision 2030 megaprojects",
+      "item3": "Global market access with tariff-free trade to 17 Arab countries",
+      "item4": "Pro-investor ecosystem with 100% foreign ownership and regulatory",
+      "item5": "Government contracts and tax incentives through the RHQ program"
+    },
+    "society_items": {
+      "item1": "Targeting 100M annual tourist visits by 2030 as a top global",
+      "item2": "Cultural renaissance with UNESCO sites and entertainment initiatives",
+      "item3": "Modern infrastructure and world-class amenities improving quality of",
+      "item4": "Investment in education, healthcare, and sports creating vibrant",
+      "item5": "Social development programs enhancing citizen wellbeing"
+    },
+    "nation_items": {
+      "item1": "Targeting top 5 global competitiveness through comprehensive",
+      "item2": "Ambitious giga-projects like NEOM and Qiddiya reshaping the",
+      "item3": "Digital transformation driving government efficiency and services",
+      "item4": "Supporting SMEs to contribute significantly to GDP growth and",
+      "item5": "Renewable energy leadership with ambitious clean energy"
+    },
+    "stats": {
+      "gdp_growth": "Real GDP Growth in 2024",
+      "fdi_growth": "in YoY FDI inflows growth in 2024",
+      "credit_rating": "Sovereign credit rating (S&P)",
+      "export_growth": "Non-oil export growth YoY Jul 2025",
+      "pro_investor": "Pro-investor ecosystem",
+      "pro_investor_desc": "Comprehensive support system for international investors",
+      "tax_incentives": "Significant tax incentives",
+      "tax_incentives_desc": "Attractive tax benefits and exemptions for investors",
+      "tax_laws": "Tax Laws & Regulations",
+      "tax_laws_desc": "Clear and transparent tax framework",
+      "investment_law": "Investment Law",
+      "investment_law_desc": "Robust legal framework protecting investor rights"
+    }
+  },
+  "destination": {
+    "title": "The 'Ideal Investment Destination'",
+    "global_rankings": "Global Rankings",
+    "macroeconomic_overview": "Macroeconomic Overview",
+    "business_environment": "Business Environment",
+    "business_environment_desc": "Rankings And Performance On Business Environment Rankings",
+    "world_competitiveness": "In World Competitiveness Ranking In 2025",
+    "pillar1": "Pillar 1",
+    "pillar2": "Pillar 2",
+    "pillar3": "Pillar 3",
+    "pillar4": "Pillar 4",
+    "business_efficiency_2025": "In Business Efficiency In 2025",
+    "business_efficiency_2021": "In Business Efficiency In 2021",
+    "gov_efficiency": "In Gov. Efficiency In 2025",
+    "economic_performance": "In Economic Performance In 2025",
+    "infra_performance": "In Infra. Performance In 2025",
+    "top_stats": {
+      "trust_ranking": "Out Of 28 Countries With The Highest % Of Trust In Gov. In 2024",
+      "ip_enforcement": "Globally In IP Enforcement Competitiveness In 2025",
+      "multinational_corps": "Multinational Corporations Choose KSA To Establish Their RHQs"
+    }
   }
 }
 

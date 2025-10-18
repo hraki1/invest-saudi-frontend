@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 // Swiper styles will be added to CSS file
 
 export default function StrategicDirection() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<"economy" | "society" | "nation">(
     "economy"
   );
@@ -14,65 +16,62 @@ export default function StrategicDirection() {
       id: 1,
       icon: "📈",
       value: "1.8%",
-      description: "Real GDP Growth in 2024",
+      description: t('strategic_direction.stats.gdp_growth'),
     },
     {
       id: 2,
       icon: "💰",
       value: "24%",
-      description: "in YoY FDI inflows growth in 2024",
+      description: t('strategic_direction.stats.fdi_growth'),
     },
     {
       id: 3,
       icon: "⭐",
       value: "A+",
-      description: "Sovereign credit rating (S&P)",
+      description: t('strategic_direction.stats.credit_rating'),
     },
     {
       id: 4,
       icon: "🚀",
       value: "30.4%",
-      description: "Non-oil export growth YoY Jul 2025",
+      description: t('strategic_direction.stats.export_growth'),
     },
     {
       id: 1,
-      title: "Pro-investor ecosystem",
+      title: t('strategic_direction.stats.pro_investor'),
       value: "24%",
-
-      description: "Comprehensive support system for international investors"
+      description: t('strategic_direction.stats.pro_investor_desc')
     },
     {
       id: 2,
-      title: "Significant tax incentives",
+      title: t('strategic_direction.stats.tax_incentives'),
       value: "24%",
-
-      description: "Attractive tax benefits and exemptions for investors"
+      description: t('strategic_direction.stats.tax_incentives_desc')
     },
     {
       id: 3,
-      title: "Tax Laws & Regulations",
+      title: t('strategic_direction.stats.tax_laws'),
       value: "24%",
-
-      description: "Clear and transparent tax framework"
+      description: t('strategic_direction.stats.tax_laws_desc')
     },
     {
       id: 4,
-      title: "Investment Law",
+      title: t('strategic_direction.stats.investment_law'),
       value: "24%",
-      description: "Robust legal framework protecting investor rights"
+      description: t('strategic_direction.stats.investment_law_desc')
     }
   ];
 
 
   const tabContent = {
     economy: {
-      title: "Saudi as an Investment Destination",
+      title: t('strategic_direction.investment_destination'),
       items: [
         {
           icon: (
             <img src="/icons/globe.png" alt="Economy" className="w-full h-full" />
           ),
-          text: "World's fastest-growing G20 economy, positioned as a global logistics",
+          text: t('strategic_direction.economy_items.item1'),
         },
         {
           icon: (
@@ -82,7 +81,7 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Over $2+ Trillion in opportunities driven by Vision 2030 megaprojects",
+          text: t('strategic_direction.economy_items.item2'),
         },
         {
           icon: (
@@ -92,7 +91,7 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Global market access with tariff-free trade to 17 Arab countries",
+          text: t('strategic_direction.economy_items.item3'),
         },
         {
           icon: (
@@ -102,7 +101,7 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Pro-investor ecosystem with 100% foreign ownership and regulatory",
+          text: t('strategic_direction.economy_items.item4'),
         },
         {
           icon: (
@@ -112,26 +111,26 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Government contracts and tax incentives through the RHQ program",
+          text: t('strategic_direction.economy_items.item5'),
         },
       ],
 
       
     },
     society: {
-      title: "Saudi as an Investment Destination",
+      title: t('strategic_direction.investment_destination'),
       items: [
         {
           icon: (
             <img src="/icons/city-01.png" alt="Tourism" className="w-full h-full" />
           ),
-          text: "Targeting 100M annual tourist visits by 2030 as a top global ",
+          text: t('strategic_direction.society_items.item1'),
         },
         {
           icon: (
             <img src="/icons/catalogue.png" alt="Culture" className="w-full h-full" />
           ),
-          text: "Cultural renaissance with UNESCO sites and entertainment initiatives",
+          text: t('strategic_direction.society_items.item2'),
         },
         {
           icon: (
@@ -141,7 +140,7 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Modern infrastructure and world-class amenities improving quality of",
+          text: t('strategic_direction.society_items.item3'),
         },
         {
           icon: (
@@ -151,18 +150,18 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Investment in education, healthcare, and sports creating vibrant ",
+          text: t('strategic_direction.society_items.item4'),
         },
         {
           icon: (
             <img src="/icons/city-01.png" alt="Social" className="w-full h-full" />
           ),
-          text: "Social development programs enhancing citizen wellbeing ",
+          text: t('strategic_direction.society_items.item5'),
         },
       ],
     },
     nation: {
-      title: "Saudi as an Investment Destination",
+      title: t('strategic_direction.investment_destination'),
       items: [
         {
           icon: (
@@ -172,7 +171,7 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Targeting top 5 global competitiveness through comprehensive",
+          text: t('strategic_direction.nation_items.item1'),
         },
         {
           icon: (
@@ -182,23 +181,23 @@ export default function StrategicDirection() {
               className="w-full h-full"
             />
           ),
-          text: "Ambitious giga-projects like NEOM and Qiddiya reshaping the ",
+          text: t('strategic_direction.nation_items.item2'),
         },
         {
           icon: (
             <img src="/icons/catalogue.png" alt="Digital" className="w-full h-full" />
           ),
-          text: "Digital transformation driving government efficiency and services",
+          text: t('strategic_direction.nation_items.item3'),
         },
         {
           icon: (
             <img src="/icons/coins-01.png" alt="SMEs" className="w-full h-full" />
           ),
-          text: "Supporting SMEs to contribute significantly to GDP growth and",
+          text: t('strategic_direction.nation_items.item4'),
         },
         {
           icon: <img src="/icons/globe.png" alt="Energy" className="w-full h-full" />,
-          text: "Renewable energy leadership with ambitious clean energy",
+          text: t('strategic_direction.nation_items.item5'),
         },
       ],
     },
@@ -220,7 +219,7 @@ export default function StrategicDirection() {
       <div className="container mx-auto px-3 md:px-3 lg:px-5 relative z-10">
         {/* Title */}
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-extralight text-white mb-12 md:mb-16">
-          KSA's Strategic Direction
+          {t('strategic_direction.title')}
         </h2>
 
         {/* Main Content Grid */}
@@ -230,17 +229,7 @@ export default function StrategicDirection() {
             {/* Vision Quote */}
             <div className=" bg-gradient-to-br from-black/40 via-black/30 to-black/0.5  backdrop-blur-sm p-6 md:p-8 rounded-2xl">
               <p className="text-white/90 text-xs md:text-2xl leading-relaxed">
-                "Our Vision is a strong, thriving, and stable Saudi Arabia that
-                provides opportunity for all. Our Vision is a{" "}
-                <span className="text-cyan-400">tolerant country</span> with
-                Islam as its constitution and moderation as its method. We will
-                welcome{" "}
-                <span className="text-cyan-400">qualified individuals</span>{" "}
-                from all over the world and will respect those who have come to{" "}
-                <span className="text-cyan-400">
-                  join our journey and our success
-                </span>
-                ."
+                "{t('strategic_direction.vision_quote')}"
               </p>
               {/* Crown Prince */}
               <div className="flex items-start mt-12 gap-4">
@@ -251,11 +240,10 @@ export default function StrategicDirection() {
                 />
                 <div className="text-white">
                   <h3 className="font-medium text-base md:text-2xl mb-1">
-                    HRH Mohammed bin Salman Crown
+                    {t('strategic_direction.crown_prince')}
                   </h3>
                   <p className="text-base text-white/60 leading-tight">
-                    Prince, Prime Minister, and Chairman of the Council of
-                    Economic and Development Affairs
+                    {t('strategic_direction.crown_prince_title')}
                   </p>
                 </div>
               </div>
@@ -285,10 +273,10 @@ export default function StrategicDirection() {
                   style={{ fontFamily: "system-ui" }}
                   className="text-white text-[20px] tracking-wide font-medium"
                 >
-                  المملكة العربية السعودية
+                  {t('strategic_direction.saudi_arabia_ar')}
                 </div>
                 <div className="text-white text-[14px] tracking-wider font-medium">
-                  KINGDOM OF SAUDI ARABIA
+                  {t('strategic_direction.kingdom_eng')}
                 </div>
               </div>
             </div>
@@ -296,9 +284,9 @@ export default function StrategicDirection() {
             {/* Tabs/Pillars */}
             <div className="space-y-3 md:space-y-4 md:-mr-10 mb-5 lg:mb-0">
               {[
-                { id: "economy", title: "A Thriving Economy" },
-                { id: "society", title: "A Vibrant Society" },
-                { id: "nation", title: "An Ambitious Nation" }
+                { id: "economy", title: t('strategic_direction.thriving_economy') },
+                { id: "society", title: t('strategic_direction.vibrant_society') },
+                { id: "nation", title: t('strategic_direction.ambitious_nation') }
               ].map((tab) => (
                 <button
                   key={tab.id}

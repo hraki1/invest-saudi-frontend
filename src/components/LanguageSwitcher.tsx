@@ -12,8 +12,8 @@ export default function LanguageSwitcher() {
     setIsOpen(false);
   };
 
-  const currentLanguage = i18n.language === 'en' ? 'العربية' : 'English';
-  const otherLanguage = i18n.language === 'en' ? 'English' : 'العربية';
+  const currentLanguage = i18n.language === 'ar' ? 'العربية' : 'English';
+  const otherLanguage = i18n.language === 'ar' ? 'English' : 'العربية';
 
   return (
     <div className="relative">

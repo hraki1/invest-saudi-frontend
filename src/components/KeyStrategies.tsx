@@ -1,45 +1,47 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function KeyStrategies() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<number>(1);
 
   const pillars = [
-    { title: "Vibrant Society", color: "#0DACA7", image: "/icons/tree/green.png" },
-    { title: "Thriving Economy", color: "#814A98", image: "/icons/tree/pink.png" },
-    { title: "Ambitious Nation", color: "#013B5E", image: "/icons/tree/blue.png" }
+    { title: t('key_strategies.vibrant_society'), color: "#0DACA7", image: "/icons/tree/green.png" },
+    { title: t('key_strategies.thriving_economy'), color: "#814A98", image: "/icons/tree/pink.png" },
+    { title: t('key_strategies.ambitious_nation'), color: "#013B5E", image: "/icons/tree/blue.png" }
   ];
 
   const sections = [
-    { id: 1, title: 'Vision Programs', description: 'The NIS Is One Of The Main Enablers To Vision 2030, Via A Comprehensive Package Of Reforms To The National Investment System' },
-    { id: 2, title: 'Vision Projects', description: 'Major giga-projects transforming Saudi Arabia' },
-    { id: 3, title: 'Goals', description: 'Strategic objectives aligned with Vision 2030' },
-    { id: 4, title: 'Pillar', description: 'Core pillars supporting national transformation' },
-    { id: 5, title: 'Sectors', description: 'Key economic sectors driving growth' },
-    { id: 6, title: 'Latest Strategic Progress', description: 'Recent achievements and milestones' }
+    { id: 1, title: t('key_strategies.vision_programs'), description: t('key_strategies.vision_programs_desc') },
+    { id: 2, title: t('key_strategies.vision_projects'), description: t('key_strategies.vision_projects_desc') },
+    { id: 3, title: t('key_strategies.goals'), description: t('key_strategies.goals_desc') },
+    { id: 4, title: t('key_strategies.pillar'), description: t('key_strategies.pillar_desc') },
+    { id: 5, title: t('key_strategies.sectors'), description: t('key_strategies.sectors_desc') },
+    { id: 6, title: t('key_strategies.latest_progress'), description: t('key_strategies.latest_progress_desc') }
   ];
 
 
   const strategies = [
     {
-      title: 'National Investment Strategy',
+      title: t('key_strategies.national_investment'),
       image: './key-strategies/1.png',
       color: '#814A98',
       toColor: '#814A98'
     },
     {
-      title: 'National Gaming and Esports Strategy',
+      title: t('key_strategies.gaming_esports'),
       image: './key-strategies/2.png',
       color: '#009692',
       toColor: '#009692'
     },
     {
-      title: 'National Industrial Strategy',
+      title: t('key_strategies.industrial_strategy'),
       image: './key-strategies/3.png',
       color: '#003A5D',
       toColor: '#003A5D'
     },
     {
-      title: 'Real Estate Sector Strategy and Other',
+      title: t('key_strategies.real_estate'),
       image: './key-strategies/4.png',
       color: '#814A98',
       toColor: '#814A98'
@@ -52,7 +54,7 @@ export default function KeyStrategies() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-8">
-            Overview Of Key National Strategies
+            {t('key_strategies.title')}
           </h2>
           
           {/* Three Pillars */}

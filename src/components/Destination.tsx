@@ -1,17 +1,22 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n/config";
+import CounterNumber from "./CounterNumber";
 
 export default function Destination() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<"rankings" | "macroeconomic">(
     "rankings"
   );
+
+  const isRTL = i18n.language === "ar";
 
   const topStats = [
     {
       id: 1,
       number: "1",
       suffix: "st",
-      description:
-        "Out Of 28 Countries With The Highest % Of Trust In Gov. In 2024",
+      description: t("destination.top_stats.trust_ranking"),
       icon: "/icons/edelman.png",
       organization: "Edelman",
     },
@@ -19,7 +24,7 @@ export default function Destination() {
       id: 2,
       number: "13",
       suffix: "th",
-      description: "Globally In IP Enforcement Competitiveness In 2025",
+      description: t("destination.top_stats.ip_enforcement"),
       icon: "/icons/imd.png",
       organization: "IMD",
     },
@@ -27,8 +32,7 @@ export default function Destination() {
       id: 3,
       number: "~600",
       suffix: "",
-      description:
-        "Multinational Corporations Choose KSA To Establish Their RHQs",
+      description: t("destination.top_stats.multinational_corps"),
       icon: "/icons/spa.png",
       organization: "MISA",
     },
@@ -37,19 +41,19 @@ export default function Destination() {
   const pillars = [
     {
       id: 1,
-      title: "Pillar 1",
+      title: t("destination.pillar1"),
       stats: [
         {
           number: "12",
           suffix: "th",
-          description: "In Business Efficiency In 2025",
+          description: t("destination.business_efficiency_2025"),
           bgColor: "bg-cyan-50",
           borderColor: "border-cyan-100",
         },
         {
           number: "26",
           suffix: "th",
-          description: "In Business Efficiency In 2021",
+          description: t("destination.business_efficiency_2021"),
           bgColor: "bg-white",
           borderColor: "border-gray-200",
         },
@@ -57,19 +61,19 @@ export default function Destination() {
     },
     {
       id: 2,
-      title: "Pillar 2",
+      title: t("destination.pillar2"),
       stats: [
         {
           number: "17",
           suffix: "th",
-          description: "In Gov. Efficiency In 2025",
+          description: t("destination.gov_efficiency"),
           bgColor: "bg-purple-50",
           borderColor: "border-purple-100",
         },
         {
           number: "24",
           suffix: "th",
-          description: "In Economic Performance In 2025",
+          description: t("destination.economic_performance"),
           bgColor: " bg-[#ECE4F0]",
           borderColor: "border-gray-200",
         },
@@ -77,19 +81,19 @@ export default function Destination() {
     },
     {
       id: 3,
-      title: "Pillar 3",
+      title: t("destination.pillar3"),
       stats: [
         {
           number: "17",
           suffix: "th",
-          description: "In Economic Performance In 2025",
+          description: t("destination.economic_performance"),
           bgColor: "bg-blue-50",
           borderColor: "border-blue-100",
         },
         {
           number: "48",
           suffix: "th",
-          description: "In Economic Performance In 2025",
+          description: t("destination.economic_performance"),
           bgColor: "bg-white",
           borderColor: "border-gray-200",
         },
@@ -97,19 +101,19 @@ export default function Destination() {
     },
     {
       id: 4,
-      title: "Pillar 4",
+      title: t("destination.pillar4"),
       stats: [
         {
           number: "31",
           suffix: "th",
-          description: "In Infra. Performance In 2025",
+          description: t("destination.infra_performance"),
           bgColor: "bg-teal-50",
           borderColor: "border-teal-100",
         },
         {
           number: "36",
           suffix: "th",
-          description: "In Economic Performance In 2025",
+          description: t("destination.economic_performance"),
           bgColor: "bg-white",
           borderColor: "border-gray-200",
         },
@@ -120,7 +124,11 @@ export default function Destination() {
   return (
     <section className="relative py-12 md:py-10 overflow-hidden">
       {/* Decorative Map Pattern - Right Side */}
-      <div className="absolute right-0 top-0 bottom-0 w-[45%] opacity-90 pointer-events-none hidden lg:block">
+      <div
+        className={`absolute ${
+          isRTL ? "left-0" : "right-0"
+        } top-0 bottom-0 w-[45%] opacity-90 pointer-events-none hidden lg:block`}
+      >
         <img
           src="/destination-hero.png"
           alt="Destination Map"
@@ -128,11 +136,11 @@ export default function Destination() {
         />
       </div>
 
-      <div className="container mx-auto px-3 md:px-4 relative z-10">
+      <div className={`container mx-auto px-3 md:px-4 relative z-10`}>
         {/* Title with dotted border */}
         <div className="pt-3 md:pt-5 mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-[62px] font-light text-gray-900 mb-10 leading-tight">
-            The 'Ideal Investment Destination'
+            {t("destination.title")}
           </h2>
 
           {/* Tabs */}
@@ -145,7 +153,7 @@ export default function Destination() {
                   : "text-gray-400 hover:text-gray-600"
               }`}
             >
-              Global Rankings
+              {t("destination.global_rankings")}
               {activeTab === "rankings" && (
                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#00A7A2]"></div>
               )}
@@ -158,7 +166,7 @@ export default function Destination() {
                   : "text-gray-400 hover:text-gray-600"
               }`}
             >
-              Macroeconomic Overview
+              {t("destination.macroeconomic_overview")}
               {activeTab === "macroeconomic" && (
                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#00A7A2]"></div>
               )}
@@ -168,14 +176,16 @@ export default function Destination() {
 
         {/* Content */}
         {activeTab === "rankings" && (
-          <div className=" p-3 md:p-5 lg:pr-[35%]">
+          <div
+            className={` p-3 md:p-5 ${isRTL ? "lg:pl-[35%]" : "lg:pr-[35%]"}`}
+          >
             {/* Business Environment Section */}
             <div>
               <h3 className="text-2xl md:text-[43px] font-semibold text-gray-900 mb-2">
-                Business Environment
+                {t("destination.business_environment")}
               </h3>
               <p className="text-gray-500 text-lg mb-3">
-                Rankings And Performance On Business Environment Rankings
+                {t("destination.business_environment_desc")}
               </p>
 
               {/* Top 3 Stats Grid */}
@@ -186,14 +196,14 @@ export default function Destination() {
                     className=" bg-white border border-gray-200 p-3 rounded-xl shadow-sm"
                   >
                     <div className="flex items-baseline gap-1 mb-3">
-                      <span className="text-5xl font-light text-gray-900">
-                        {stat.number}
-                      </span>
-                      {stat.suffix && (
-                        <span className="text-xl text-gray-500">
-                          {stat.suffix}
-                        </span>
-                      )}
+                      <CounterNumber
+                        value={stat.number}
+                        suffix={stat.suffix}
+                        className="text-5xl font-light text-gray-900"
+                        suffixClassName="text-xl text-gray-500"
+                        animationDuration={0.8}
+                        enableScaleAnimation={false}
+                      />
                     </div>
                     <p className="text-gray-600 text-sm mb-5 leading-relaxed min-h-[50px]">
                       {stat.description}
@@ -211,12 +221,12 @@ export default function Destination() {
 
               {/* World Competitiveness Ranking */}
               <div>
-                <div className="flex flex-col items-baseline gap-2 mb-3">
-                  <span className="text-[43px] font-semibold text-gray-900">
+                <div className={`flex flex-col items-start gap-2 mb-3`}>
+                  <p className=" text-[43px] font-semibold text-gray-900">
                     17th
-                  </span>
+                  </p>
                   <p className="text-gray-600 text-lg">
-                    In World Competitiveness Ranking In 2025
+                    {t("destination.world_competitiveness")}
                   </p>
                 </div>
 
@@ -237,12 +247,14 @@ export default function Destination() {
                             className={`${stat.bgColor} border ${stat.borderColor} p-4 rounded-xl`}
                           >
                             <div className="flex items-baseline gap-1 mb-2">
-                              <span className="text-4xl font-light text-gray-900">
-                                {stat.number}
-                              </span>
-                              <span className="text-lg text-gray-500">
-                                {stat.suffix}
-                              </span>
+                              <CounterNumber
+                                value={stat.number}
+                                suffix={stat.suffix}
+                                className="text-4xl font-light text-gray-900"
+                                suffixClassName="text-lg text-gray-500"
+                                enableScaleAnimation={false}
+
+                              />
                             </div>
                             <p className="text-gray-600 text-lg leading-relaxed">
                               {stat.description}
@@ -259,14 +271,16 @@ export default function Destination() {
         )}
 
         {activeTab === "macroeconomic" && (
-          <div className=" p-3 md:p-5 lg:pr-[35%]">
+          <div
+            className={` p-3 md:p-5 ${isRTL ? "lg:pl-[35%]" : "lg:pr-[35%]"}`}
+          >
             {/* Business Environment Section */}
             <div>
               <h3 className="text-2xl md:text-[43px] font-semibold text-gray-900 mb-2">
-                Business Environment
+                {t("destination.business_environment")}
               </h3>
               <p className="text-gray-500 text-lg mb-3">
-                Rankings And Performance On Business Environment Rankings
+                {t("destination.business_environment_desc")}
               </p>
 
               {/* Top 3 Stats Grid */}
@@ -277,14 +291,12 @@ export default function Destination() {
                     className=" bg-white border border-gray-200 p-3 rounded-xl shadow-sm"
                   >
                     <div className="flex items-baseline gap-1 mb-3">
-                      <span className="text-5xl font-light text-gray-900">
-                        {stat.number}
-                      </span>
-                      {stat.suffix && (
-                        <span className="text-xl text-gray-500">
-                          {stat.suffix}
-                        </span>
-                      )}
+                      <CounterNumber
+                        value={stat.number}
+                        suffix={stat.suffix}
+                        className="text-5xl font-light text-gray-900"
+                        suffixClassName="text-xl text-gray-500"
+                      />
                     </div>
                     <p className="text-gray-600 text-sm mb-5 leading-relaxed min-h-[50px]">
                       {stat.description}
@@ -303,11 +315,14 @@ export default function Destination() {
               {/* World Competitiveness Ranking */}
               <div>
                 <div className="flex flex-col items-baseline gap-2 mb-3">
-                  <span className="text-[43px] font-semibold text-gray-900">
-                    17th
-                  </span>
+                  <CounterNumber
+                    value="17"
+                    suffix="th"
+                    className="text-[43px] font-semibold text-gray-900"
+                    suffixClassName="text-[43px] font-semibold text-gray-900"
+                  />
                   <p className="text-gray-600 text-lg">
-                    In World Competitiveness Ranking In 2025
+                    {t("destination.world_competitiveness")}
                   </p>
                 </div>
 
@@ -328,12 +343,12 @@ export default function Destination() {
                             className={`${stat.bgColor} border ${stat.borderColor} p-4 rounded-xl`}
                           >
                             <div className="flex items-baseline gap-1 mb-2">
-                              <span className="text-4xl font-light text-gray-900">
-                                {stat.number}
-                              </span>
-                              <span className="text-lg text-gray-500">
-                                {stat.suffix}
-                              </span>
+                              <CounterNumber
+                                value={stat.number}
+                                suffix={stat.suffix}
+                                className="text-4xl font-light text-gray-900"
+                                suffixClassName="text-lg text-gray-500"
+                              />
                             </div>
                             <p className="text-gray-600 text-lg leading-relaxed">
                               {stat.description}
