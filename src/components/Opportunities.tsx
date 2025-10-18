@@ -36,34 +36,32 @@ export default function Opportunities() {
         {
           title: t("opportunities.projects.advanced_manufacturing"),
           image:
-            "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
+            "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.aerospace_defense"),
-          image:
-            "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop",
+          image: "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.agriculture_food"),
-          image:
-            "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop",
+          image: "./opportunities/3.png",
         },
       ],
       opportunities: [
         {
           title: t("opportunities.projects.advanced_manufacturing"),
           image:
-            "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+            "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.aerospace_defense"),
           image:
-            "https://images.unsplash.com/photo-1583425423320-2386622cd2e4?w=400&h=300&fit=crop",
+            "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.agriculture_food"),
           image:
-            "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop",
+            "./opportunities/3.png",
         },
       ],
     },
@@ -162,34 +160,34 @@ export default function Opportunities() {
         {
           title: t("opportunities.projects.energy_oil"),
           image:
-            "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=400&h=300&fit=crop",
+            "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.petrochemicals"),
           image:
-            "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=300&fit=crop",
+            "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.logistics_hub"),
           image:
-            "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop",
+            "./opportunities/3.png",
         },
       ],
       opportunities: [
         {
           title: t("opportunities.projects.industrial_parks"),
           image:
-            "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=400&h=300&fit=crop",
+            "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.port_development"),
           image:
-            "https://images.unsplash.com/photo-1605282003441-a966bb348137?w=400&h=300&fit=crop",
+            "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.technology_sector"),
           image:
-            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop",
+            "./opportunities/3.png",
         },
       ],
     },
@@ -289,7 +287,7 @@ export default function Opportunities() {
               <h4 className="text-sm font-medium text-slate-400 mb-4">
                 {t("opportunities.giga_projects")}
               </h4>
-              <div className="grid grid-cols-3 gap-3 mb-6">
+              <div className="grid grid-cols-3 gap-5 mb-6">
                 {currentData.gigaProjects.map((project, idx) => (
                   <div
                     key={idx}
@@ -300,8 +298,8 @@ export default function Opportunities() {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
-                      <p className="text-white text-xs font-medium p-3 leading-tight">
+                    <div className="absolute inset-0  flex items-end">
+                      <p className="text-white text-base font-medium p-4 leading-tight">
                         {project.title}
                       </p>
                     </div>
@@ -315,7 +313,7 @@ export default function Opportunities() {
               <h4 className="text-sm font-medium text-slate-400 mb-4">
                 {t("opportunities.opportunities_section")}
               </h4>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-5">
                 {currentData.opportunities.map((opportunity, idx) => (
                   <div
                     key={idx}
@@ -326,8 +324,8 @@ export default function Opportunities() {
                       alt={opportunity.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
-                      <p className="text-white text-xs font-medium p-3 leading-tight">
+                    <div className="absolute inset-0  flex items-end">
+                      <p className="text-white text-base font-medium p-4 leading-tight">
                         {opportunity.title}
                       </p>
                     </div>

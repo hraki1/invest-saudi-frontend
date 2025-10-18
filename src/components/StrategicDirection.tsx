@@ -226,7 +226,7 @@ export default function StrategicDirection() {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-10 mb-16">
           {/* Left Column: Vision Quote & Crown Prince - 4 columns */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-6 mb-10 lg:mb-0">
             {/* Vision Quote */}
             <div className=" bg-gradient-to-br from-black/40 via-black/30 to-black/0.5  backdrop-blur-sm p-6 md:p-8 rounded-2xl">
               <p className="text-white/90 text-xs md:text-2xl leading-relaxed">
@@ -294,7 +294,7 @@ export default function StrategicDirection() {
             </div>
 
             {/* Tabs/Pillars */}
-            <div className="space-y-3 md:space-y-4 -mr-10">
+            <div className="space-y-3 md:space-y-4 md:-mr-10 mb-5 lg:mb-0">
               {[
                 { id: "economy", title: "A Thriving Economy" },
                 { id: "society", title: "A Vibrant Society" },
@@ -347,14 +347,12 @@ export default function StrategicDirection() {
       </div>
 
       {/* Bottom Stats Bar - Swiper */}
-      <div className="bg-black/30 backdrop-blur-sm px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="bg-black/30 backdrop-blur-sm px-4 md:px-6 lg:px-[30px] relative z-10">
         <div className="py-4">
           <Swiper
             modules={[Navigation, Autoplay, Pagination, Autoplay]}
-            spaceBetween={20}
             slidesPerView="auto"
             speed={900}
-
             navigation={true}
             pagination={{ clickable: true }}
             autoplay={{
@@ -364,14 +362,14 @@ export default function StrategicDirection() {
             className="stats-swiper cursor-grab select-none"
           >
             {statsData.map((stat) => (
-              <SwiperSlide key={stat.id} className="!w-auto">
-                <div className="flex items-center gap-5">
-                  <img src="/icons/saudi-tree.png" alt="" className="w-6 h-6" />
+              <SwiperSlide key={stat.id} className="!w-auto px-2 md:px-6 lg:px-4">
+                <div className="flex items-center gap-4 md:gap-8">
+                  <img src="/icons/saudi-tree.png" alt="" className="h-[16px] md:h-[18px] lg:h-[22px]" />
                   <div className="flex items-center gap-2">
-                    <span className="text-cyan-400 text-xl font-semibold whitespace-nowrap">
+                    <span className="text-cyan-400 text-sm md:text-base lg:text-[22px] font-bold whitespace-nowrap">
                       {stat.value}
                     </span>
-                    <span className="text-white text-sm whitespace-nowrap">
+                    <span className="text-white text-sm md:text-base lg:text-[22px] whitespace-nowrap">
                       {stat.description}
                     </span>
                   </div>

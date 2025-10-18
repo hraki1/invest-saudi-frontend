@@ -22,25 +22,25 @@ export default function KeyStrategies() {
   const strategies = [
     {
       title: 'National Investment Strategy',
-      image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=300&fit=crop',
-      color: '#7C3AED',
-      toColor: '#4C1D95'
+      image: './key-strategies/1.png',
+      color: '#814A98',
+      toColor: '#814A98'
     },
     {
       title: 'National Gaming and Esports Strategy',
-      image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop',
-      color: '#0D9488',
-      toColor: '#134E4A'
+      image: './key-strategies/2.png',
+      color: '#009692',
+      toColor: '#009692'
     },
     {
       title: 'National Industrial Strategy',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-      color: '#2563EB',
-      toColor: '#1E3A8A'
+      image: './key-strategies/3.png',
+      color: '#003A5D',
+      toColor: '#003A5D'
     },
     {
       title: 'Real Estate Sector Strategy and Other',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop',
+      image: './key-strategies/4.png',
       color: '#814A98',
       toColor: '#814A98'
     }
@@ -83,7 +83,7 @@ export default function KeyStrategies() {
               <div 
                 className="absolute inset-0 flex items-end p-6"
                 style={{
-                  background: `linear-gradient(to top, ${strategy.toColor}CC, ${strategy.color}80, transparent)`
+                  background: `linear-gradient(to top, ${strategy.color}, ${strategy.toColor}80, transparent , transparent )`
                 }}
               >
                 <h3 className="text-white px-5  text-lg md:text-2xl font-light leading-tight">
@@ -107,7 +107,7 @@ export default function KeyStrategies() {
                   onClick={() => setActiveSection(section.id)}
                   className={`w-full text-left py-2 px-6 rounded-xl transition-all duration-300 ${
                     activeSection === section.id
-                      ? 'bg-white shadow-md'
+                      ? 'bg-white shadow-md py-4'
                       : ''
                   }`}
                 >
@@ -119,7 +119,7 @@ export default function KeyStrategies() {
                     </span>
                     <div className="flex-1">
                       <h4 className={`text-xl md:text-[44px] mb-2 ${
-                        activeSection === section.id ? 'text-[#814A98]' : 'text-gray-700 font-light'
+                        activeSection === section.id ? 'text-[#814A98] font-medium' : 'text-gray-700 font-light'
                       }`}>
                         {section.title}
                       </h4>
