@@ -56,9 +56,9 @@ export default function KeyStrategies() {
           </h2>
           
           {/* Three Pillars */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          <div className="flex flex-wrap justify-center items-center gap-5 md:gap-12">
             {pillars.map((pillar, idx) => (
-              <div key={idx} className="flex items-center gap-3">
+              <div key={idx} className="flex items-center gap-2 md:gap-3">
                 <img 
                   src={pillar.image} 
                   alt={pillar.title}

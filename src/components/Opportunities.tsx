@@ -35,8 +35,7 @@ export default function Opportunities() {
       gigaProjects: [
         {
           title: t("opportunities.projects.advanced_manufacturing"),
-          image:
-            "./opportunities/1.png",
+          image: "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.aerospace_defense"),
@@ -50,18 +49,15 @@ export default function Opportunities() {
       opportunities: [
         {
           title: t("opportunities.projects.advanced_manufacturing"),
-          image:
-            "./opportunities/1.png",
+          image: "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.aerospace_defense"),
-          image:
-            "./opportunities/2.png",
+          image: "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.agriculture_food"),
-          image:
-            "./opportunities/3.png",
+          image: "./opportunities/3.png",
         },
       ],
     },
@@ -159,35 +155,29 @@ export default function Opportunities() {
       gigaProjects: [
         {
           title: t("opportunities.projects.energy_oil"),
-          image:
-            "./opportunities/1.png",
+          image: "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.petrochemicals"),
-          image:
-            "./opportunities/2.png",
+          image: "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.logistics_hub"),
-          image:
-            "./opportunities/3.png",
+          image: "./opportunities/3.png",
         },
       ],
       opportunities: [
         {
           title: t("opportunities.projects.industrial_parks"),
-          image:
-            "./opportunities/1.png",
+          image: "./opportunities/1.png",
         },
         {
           title: t("opportunities.projects.port_development"),
-          image:
-            "./opportunities/2.png",
+          image: "./opportunities/2.png",
         },
         {
           title: t("opportunities.projects.technology_sector"),
-          image:
-            "./opportunities/3.png",
+          image: "./opportunities/3.png",
         },
       ],
     },
@@ -228,7 +218,7 @@ export default function Opportunities() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-12 items-center">
           {/* Left Column - Map */}
           <div className="relative">
             <div className="relative w-full h-[500px] flex items-center justify-center">
@@ -243,7 +233,7 @@ export default function Opportunities() {
             <div>
               <div className="flex items-center gap-2 mb-6">
                 <img src="./icons/radio.png" alt="" className="w-7 h-7" />
-                <h3 className="text-base md:text-[45px] font-light text-white">
+                <h3 className="text-xl md:text-[45px] font-light text-white">
                   {currentData.name} {t("opportunities.key_figures")}
                 </h3>
               </div>
@@ -287,7 +277,7 @@ export default function Opportunities() {
               <h4 className="text-sm font-medium text-slate-400 mb-4">
                 {t("opportunities.giga_projects")}
               </h4>
-              <div className="grid grid-cols-3 gap-5 mb-6">
+              <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
                 {currentData.gigaProjects.map((project, idx) => (
                   <div
                     key={idx}
@@ -298,8 +288,9 @@ export default function Opportunities() {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     <div className="absolute inset-0  flex items-end">
-                      <p className="text-white text-base font-medium p-4 leading-tight">
+                      <p className="text-white text-sm sm:text-base font-medium p-2 md:p-4 leading-tight">
                         {project.title}
                       </p>
                     </div>
@@ -313,7 +304,7 @@ export default function Opportunities() {
               <h4 className="text-sm font-medium text-slate-400 mb-4">
                 {t("opportunities.opportunities_section")}
               </h4>
-              <div className="grid grid-cols-3 gap-5">
+              <div className="grid grid-cols-3 gap-2 md:gap-4">
                 {currentData.opportunities.map((opportunity, idx) => (
                   <div
                     key={idx}
@@ -324,8 +315,10 @@ export default function Opportunities() {
                       alt={opportunity.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
                     <div className="absolute inset-0  flex items-end">
-                      <p className="text-white text-base font-medium p-4 leading-tight">
+                      <p className="text-white text-sm sm:text-base font-medium p-2 md:p-4 leading-tight">
                         {opportunity.title}
                       </p>
                     </div>
