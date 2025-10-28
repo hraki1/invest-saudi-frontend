@@ -8,7 +8,7 @@
   },
   "hero": {
     "title": "Unlock Investment Opportunities In Saudi Arabia.",
-    "subtitle": "Explore sectors, services, and partners – all in one platform.",
+    "subtitle": "audi Arabia 1s creating the world's most ambitious portfolio of investment portunities — offering unparalleled access to opportunities in innovation, ustainability, Al, and Advanced Technologies.",
     "explore_sectors": "Explore Sectors",
     "e_services": "E-Services",
     "e_consulting": "E-Consulting"
@@ -170,6 +170,23 @@
       "tax_laws_desc": "Clear and transparent tax framework",
       "investment_law": "Investment Law",
       "investment_law_desc": "Robust legal framework protecting investor rights"
+    },
+    "vision_dashboard": {
+      "title": "Vision 2030 Dashboard",
+      "metrics": {
+        "gdp_ranking": "Global GDP Ranking [$]",
+        "non_oil_exports": "Non-Oil Exports Share Of Non-Oil GDP",
+        "hdi": "Human Development Index (HDI)",
+        "private_sector_gdp": "Private Sector Contribution To GDP [%]",
+        "fdi_gdp": "Foreign Direct Investment (FDI) Share Of GDP",
+        "talent_competitiveness": "Ranking In Global Talent Competitiveness Index",
+        "logistics_performance": "Logistics Performance Index",
+        "womens_labor": "Women's Labor Force Participation Rate [%]"
+      },
+      "baseline": "Baseline (2016)",
+      "current": "Current (2025)",
+      "target": "Target (2030)",
+      "source": "Source: Vision 2030 annual report 2024; Vision 2030"
     }
   },
   "destination": {
@@ -195,4 +212,3 @@
     }
   }
 }
-

@@ -1,20 +1,71 @@
 @import "tailwindcss";
 @import "swiper/css";
 
+
+
+@font-face {
+  font-family: "F29LT Bukra Lt";
+  src: url("https://db.onlinewebfonts.com/t/73a1a23ef60759de6911fa0f5ef5bf35.eot");
+  src: url("https://db.onlinewebfonts.com/t/73a1a23ef60759de6911fa0f5ef5bf35.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/73a1a23ef60759de6911fa0f5ef5bf35.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/73a1a23ef60759de6911fa0f5ef5bf35.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/73a1a23ef60759de6911fa0f5ef5bf35.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/73a1a23ef60759de6911fa0f5ef5bf35.svg#F29LT Bukra Lt")format("svg");
+}
+
+@font-face {
+  font-family: "F29LT Bukra Rg";
+  src: url("https://db.onlinewebfonts.com/t/3954dbc5151f957fd9572ed69aac3c10.eot");
+  src: url("https://db.onlinewebfonts.com/t/3954dbc5151f957fd9572ed69aac3c10.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/3954dbc5151f957fd9572ed69aac3c10.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/3954dbc5151f957fd9572ed69aac3c10.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/3954dbc5151f957fd9572ed69aac3c10.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/3954dbc5151f957fd9572ed69aac3c10.svg#F29LT Bukra Rg")format("svg");
+}
+
+@font-face {
+  font-family: "F29LT Bukra";
+  src: url("https://db.onlinewebfonts.com/t/7a4456451db34fc8abc7a9ce7da13480.eot");
+  src: url("https://db.onlinewebfonts.com/t/7a4456451db34fc8abc7a9ce7da13480.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7a4456451db34fc8abc7a9ce7da13480.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7a4456451db34fc8abc7a9ce7da13480.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7a4456451db34fc8abc7a9ce7da13480.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7a4456451db34fc8abc7a9ce7da13480.svg#F29LT Bukra")format("svg");
+}
+
+
+.bukra-light {
+  font-family: "F29LT Bukra Lt";
+}
+
+.bukra-regular {
+  font-family: "F29LT Bukra Regular";
+}
+
+.bukra-bold {
+  font-family: "F29LT Bukra";
+}
+
+
+
 /* Hide scrollbar for horizontal scroll */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 /* Custom Swiper Styles */
 .stats-swiper .swiper-button-next,
 .stats-swiper .swiper-button-prev {
-  color: #06b6d4; /* cyan-500 */
+  color: #06b6d4;
+  /* cyan-500 */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   width: 40px;
@@ -35,7 +86,8 @@
 }
 
 .stats-swiper .swiper-pagination-bullet-active {
-  background: #06b6d4; /* cyan-500 */
+  background: #06b6d4;
+  /* cyan-500 */
 }
 
 .stats-swiper .swiper-pagination {
