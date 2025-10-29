@@ -127,7 +127,7 @@ export default function Destination() {
       <div
         className={`absolute ${
           isRTL ? "left-0" : "right-0"
-        } top-0 bottom-0 w-[45%] opacity-90 pointer-events-none hidden lg:block`}
+        } top-0 bottom-0 w-[35%] opacity-90 pointer-events-none hidden lg:block`}
       >
         <img
           src="/destination-hero.png"
@@ -181,60 +181,70 @@ export default function Destination() {
           >
             {/* Business Environment Section */}
             <div>
-              <h3 className="text-2xl md:text-[43px] font-semibold text-gray-900 mb-2">
-                {t("destination.business_environment")}
-              </h3>
-              <p className="text-gray-500 text-lg mb-3">
-                {t("destination.business_environment_desc")}
-              </p>
+              <div className="bg-gradient-to-r from-[#00A7A2] to-[#814a98]  p-1 pt-2  rounded-2xl mb-5">
+                <div className="px-3">
+                  <h3 className="text-2xl md:text-[43px] font-semibold text-white mb-2">
+                    {t("destination.business_environment")}
+                  </h3>
+                  <p className="text-white text-lg mb-3">
+                    {t("destination.business_environment_desc")}
+                  </p>
+                </div>
 
-              {/* Top 3 Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
-                {topStats.map((stat) => (
-                  <div
-                    key={stat.id}
-                    className=" bg-white border border-gray-200 p-3 rounded-xl shadow-sm"
-                  >
-                    <div className="flex items-baseline gap-1 mb-3">
-                      <CounterNumber
-                        value={stat.number}
-                        suffix={stat.suffix}
-                        className="text-5xl font-light text-gray-900"
-                        suffixClassName="text-xl text-gray-500"
-                        animationDuration={0.8}
-                        enableScaleAnimation={false}
-                      />
+                {/* Top 3 Stats Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3">
+                  {topStats.map((stat, index) => (
+                    <div
+                      key={stat.id}
+                      className={` bg-white border border-gray-200 p-3 ${
+                        index === 0
+                          ? "rounded-l-xl"
+                          : index === 2
+                          ? "rounded-r-xl"
+                          : ""
+                      }`}
+                    >
+                      <div className="flex items-baseline gap-1 mb-3">
+                        <CounterNumber
+                          value={stat.number}
+                          suffix={stat.suffix}
+                          className="text-5xl font-light text-gray-900"
+                          suffixClassName="text-xl text-gray-500"
+                          animationDuration={0.8}
+                          enableScaleAnimation={false}
+                        />
+                      </div>
+                      <p className="text-gray-600 text-sm mb-5 leading-relaxed min-h-[50px]">
+                        {stat.description}
+                      </p>
+                      <div className="flex items-end gap-2">
+                        <img
+                          src={stat.icon}
+                          alt={stat.organization}
+                          className="h-10 w-auto"
+                        />
+                      </div>
                     </div>
-                    <p className="text-gray-600 text-sm mb-5 leading-relaxed min-h-[50px]">
-                      {stat.description}
-                    </p>
-                    <div className="flex items-end gap-2">
-                      <img
-                        src={stat.icon}
-                        alt={stat.organization}
-                        className="h-10 w-auto"
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {/* World Competitiveness Ranking */}
-              <div>
-                <div className={`flex flex-col items-start gap-2 mb-3`}>
-                  <p className=" text-[43px] font-semibold text-gray-900">
+              <div className="bg-gradient-to-r from-[#00A7A2] to-[#814a98]  p-1 pt-2  rounded-2xl mb-5">
+                <div className={`flex flex-col items-start gap-2 mb-3 px-3`}>
+                  <p className=" text-[43px] font-semibold text-white">
                     17th
                   </p>
-                  <p className="text-gray-600 text-lg">
+                  <p className="text-white text-lg">
                     {t("destination.world_competitiveness")}
                   </p>
                 </div>
 
                 {/* 4 Pillars Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                   {pillars.map((pillar) => (
                     <div
-                      className=" bg-white p-3 border border-gray-200 rounded-xl"
+                      className={` bg-white p-3 border border-gray-200 rounded-xl ${pillar.id === 1 ? "rounded-l-xl" : pillar.id === 4 ? "rounded-r-xl" : ""}`}
                       key={pillar.id}
                     >
                       <div className="text-base text-gray-400 mb-3 font-normal">
@@ -253,7 +263,6 @@ export default function Destination() {
                                 className="text-4xl font-light text-gray-900"
                                 suffixClassName="text-lg text-gray-500"
                                 enableScaleAnimation={false}
-
                               />
                             </div>
                             <p className="text-gray-600 text-lg leading-relaxed">

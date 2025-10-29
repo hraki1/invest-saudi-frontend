@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { TbArrowCurveRight } from "react-icons/tb";
+import { CgArrowTopRight } from "react-icons/cg";
 
 // Swiper styles will be added to CSS file
 
@@ -407,7 +408,7 @@ export default function StrategicDirection() {
           </div>
 
           {/* right: Vision 2030 with Tabs - 4 columns */}
-          <div className="lg:col-span-7 flex items-start justify-center">
+          <div className="lg:col-span-7 flex flex-col md:flex-row items-start justify-center">
             {/* Tabs/Pillars */}
             <div className="space-y-3 md:space-y-4 mb-5 mt-7 lg:mb-0">
               {tabs.map((tab) => (
@@ -459,29 +460,37 @@ export default function StrategicDirection() {
 
         {/* Dashboard */}
         <div className="mt-12 mb-12">
-          <div className="bg-black/30 backdrop-blur-xl rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-black/30 backdrop-blur-xl rounded-2xl p-8 md:p-5 relative overflow-hidden">
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-orange-400/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-72 h-72 bg-green-400/5 rounded-full blur-3xl"></div>
 
             <div className="relative z-10">
               {/* Dashboard Grid - 3 equal columns */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-20 mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                 {dashboardColumns.map((column, colIdx) => (
-                  <div key={colIdx} className="space-y-7">
+                  <div
+                    key={colIdx}
+                    className="space-y-7 flex flex-col items-center mb-5 md:mb-0"
+                  >
                     {column.map((metric, idx) => (
-                      <div key={idx} className="space-y-2.5 ">
+                      <div
+                        key={idx}
+                        className={`space-y-2.5 px-4 xl:px-9 ${
+                          colIdx > 0 ? "gradient-border-left" : ""
+                        }`}
+                      >
                         <p className="text-white text-xs md:text-sm leading-relaxed">
                           {metric.label}
                         </p>
                         <div className="flex gap-2.5 items-center flex-nowrap text-[28px] text-center">
-                          <div className="flex justify-center gap-1 items-start backdrop-blur-2xl w-[137px] p-2 rounded-lg text-white text-[28px] font-semibold whitespace-nowrap flex-shrink-0 relative">
+                          <div className="flex justify-center gap-1 items-start backdrop-blur-sm w-[100px] md:w-[120px] xl:w-[137px] rounded-lg text-white text-base md:text-lg 2xl:text-[28px] font-semibold whitespace-nowrap flex-shrink-0 relative">
                             {metric.baseline}
                             {metric.suffix && (
                               <div className="text-xs">{metric.suffix}</div>
                             )}
                           </div>
-                          <div className="flex justify-center gap-1 items-center bg-[#006461] w-[137px] p-2 rounded-lg text-white text-[28px] font-semibold whitespace-nowrap flex-shrink-0 relative">
+                          <div className="flex justify-center gap-1 items-center bg-[#006461] w-[100px] md:w-[120px] xl:w-[137px] rounded-lg text-white text-base md:text-lg 2xl:text-[28px]  font-semibold whitespace-nowrap flex-shrink-0 relative">
                             <div className="flex justify-center gap-1 items-start">
                               {metric.current}
                               {metric.suffix && (
@@ -490,7 +499,7 @@ export default function StrategicDirection() {
                             </div>
                             <TbArrowCurveRight className="rotate-45" />
                           </div>
-                          <div className="flex justify-center gap-1 items-start bg-[#4D2C5B] w-[137px] p-2 rounded-lg text-white text-[28px] font-semibold whitespace-nowrap flex-shrink-0">
+                          <div className="flex justify-center gap-1 items-start bg-[#4D2C5B] w-[100px] md:w-[120px] xl:w-[137px]  rounded-lg text-white text-base md:text-lg 2xl:text-[28px]  font-semibold whitespace-nowrap flex-shrink-0">
                             {metric.target}
                             {metric.suffix && (
                               <div className="text-xs">{metric.suffix}</div>
@@ -502,34 +511,40 @@ export default function StrategicDirection() {
                   </div>
                 ))}
               </div>
-
-              {/* Footer with source and legend */}
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-4 border-t border-white/10">
-                <p className="text-white/50 text-xs md:text-sm">
-                  {t("strategic_direction.vision_dashboard.source")}
-                </p>
-                <div className="flex gap-6 text-white text-xs md:text-sm">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-gray-700"></div>
-                    <span>
-                      {t("strategic_direction.vision_dashboard.baseline")}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#00A7A2]"></div>
-                    <span>
-                      {t("strategic_direction.vision_dashboard.current")}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-[#814A98]"></div>
-                    <span>
-                      {t("strategic_direction.vision_dashboard.target")}
-                    </span>
-                  </div>
-                </div>
+            </div>
+          </div>
+          {/* Footer with source and legend */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pt-4 border-t border-white/10">
+            <p className="text-white/50 text-xs md:text-sm">
+              {t("strategic_direction.vision_dashboard.source")}
+            </p>
+            <div className="flex gap-6 text-white text-xs md:text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-gray-700"></div>
+                <span>
+                  {t("strategic_direction.vision_dashboard.baseline")}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#00A7A2]"></div>
+                <span>{t("strategic_direction.vision_dashboard.current")}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#814A98]"></div>
+                <span>{t("strategic_direction.vision_dashboard.target")}</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Review link */}
+        <div className="mt-12 mb-12 flex items-center justify-center text-center">
+          <div className="flex items-center gap-2 justify-center bg-[#00A7A2] text-white md:px-6 px-5 py-2 rounded-3xl text-sm md:text-xl bukra-regular">
+            <p>
+              Review the Economy Report{" "}
+              <span className="text-sm md:text-base">2025</span>
+            </p>
+            <CgArrowTopRight />
           </div>
         </div>
       </div>

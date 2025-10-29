@@ -5,6 +5,17 @@ import Opportunities from './components/Opportunities';
 import Destination from './components/Destination';
 import KeyStrategies from './components/KeyStrategies';
 import Footer from './components/Footer';
+import Test from './components/Test';
+import InvestSectores from './components/InvestSectores';
+import RegulatoryAgreement from './components/RegulatoryAgreement';
+import UniqueIncentives from './components/UniqueIncentives';
+import GigaProjects from './components/GigaProjects';
+import SuccessStories from './components/SuccessStories';
+import Miza from './components/Miza';
+import Events from './components/Events';
+import InvestorMatchmaking from './components/InvestorMatchmaking';
+import EServices from './components/EServices';
+import RHQService from './components/RHQService';
 
 function App() {
   return (
@@ -14,7 +25,18 @@ function App() {
       <StrategicDirection />
       <Destination />
       <Opportunities />
+      <InvestSectores />
       <KeyStrategies />
+      <Test />
+      <UniqueIncentives />
+      <GigaProjects />
+      <SuccessStories />
+      <Miza />
+      <Events />
+      <InvestorMatchmaking />
+      <EServices />
+      <RHQService />
+      <RegulatoryAgreement />
       <Footer />
     </div>
   );
