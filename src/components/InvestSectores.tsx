@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 type Sector = {
   id: number;
@@ -27,7 +27,6 @@ const SECTORS: Sector[] = [
 export default function InvestSectores() {
   const [activeId, setActiveId] = useState<number>(2);
 
-  const active = useMemo(() => SECTORS.find(s => s.id === activeId) ?? SECTORS[0], [activeId]);
 
   // Map some thumbnails for preview; fallback to a generic if index is out of range
   const thumbnailFor = (idx: number) => {

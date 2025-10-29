@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { HiArrowRight } from 'react-icons/hi';
 
 interface RegulationCard {
@@ -11,7 +11,7 @@ interface RegulationCard {
 }
 
 export default function RegulatoryAgreement() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const cards: RegulationCard[] = [
     {

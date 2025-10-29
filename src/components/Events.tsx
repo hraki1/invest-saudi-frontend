@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { 
@@ -77,7 +78,8 @@ type EventFilter = "all" | "upcoming" | "past" | "webinar";
 export default function Events() {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<EventFilter>("all");
-  const [swiper, setSwiper] = useState<any>(null);
+  const [, setSwiper] = useState<SwiperType | null>(null);
+
 
   const filteredEvents = events.filter((event) => {
     if (activeFilter === "all") return true;
