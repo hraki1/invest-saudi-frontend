@@ -292,3 +292,96 @@
   opacity: 0.3;
   cursor: not-allowed;
 }
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+/* NTP Segment Chart Styles */
+.ntp-chart-container {
+  text-align: center;
+  background: #f8f9fb;
+  padding: 40px 0;
+}
+
+.ntp-chart-container svg {
+  overflow: visible;
+  cursor: pointer;
+}
+
+.ntp-chart-container .ntp-segment {
+  transition: all 0.3s ease;
+}
+
+.ntp-chart-container .ntp-segment:hover {
+  fill-opacity: 0.9;
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+}
+
+.ntp-chart-container .ntp-btn {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background: #3c2a63;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.ntp-chart-container .ntp-btn:hover {
+  background: #5b3e91;
+}
+
+.ntp-chart-container .ntp-btn.secondary {
+  background: #ddd;
+  color: #333;
+}
+
+.ntp-chart-container .ntp-btn.secondary:hover {
+  background: #ccc;
+}
+
+
+.full-circle-container {
+  background: #f8f9fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.full-circle-svg {
+  width: 700px;
+  height: 700px;
+  cursor: pointer;
+}
+
+.full-circle-svg path {
+  transition: all 0.3s ease;
+}
+
+.full-circle-svg path:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.25));
+}
+
+.full-circle-svg path.active {
+  transform: scale(1.02);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.3));
+}
+

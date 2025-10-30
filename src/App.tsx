@@ -16,12 +16,19 @@ import Events from './components/Events';
 import InvestorMatchmaking from './components/InvestorMatchmaking';
 import EServices from './components/EServices';
 import NationalPrograms from './components/NationalPrograms';
+import SaudiMap from './components/SaudiMap';
+import QRCard from './components/QRCard';
+// import Orieb from './components/Orieb';
+// import Ahmad from './components/ahmad';
 
 function App() {
   return (
     <div className="min-h-screen duration-300">
       <Navbar />
       <Hero />
+      {/* <Ahmad />
+      <Orieb /> */}
+      <SaudiMap />
       <StrategicDirection />
       <Destination />
       <Opportunities />
@@ -37,6 +44,7 @@ function App() {
       <EServices />
       <NationalPrograms />
       <RegulatoryAgreement />
+      <QRCard />
       <Footer />
     </div>
   );

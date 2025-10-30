@@ -89,7 +89,7 @@ export default function Events() {
   });
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-16 md:py-12 md:h-screen  overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-purple-800/70 to-blue-900/80"></div>
       
@@ -101,7 +101,11 @@ export default function Events() {
         }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 mx-auto px-6 md:px-12 lg:px-0">
+
+
+{/* title and filters */}
+        <div className="container mx-auto px-6 md:px-12 lg:px-20">
         {/* Title */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 md:mb-12">
           {t("events.title")}
@@ -156,6 +160,8 @@ export default function Events() {
             <HiPlayCircle className="w-5 h-5" />
             <span>{t("events.filters.webinar")}</span>
           </button>
+        </div>
+
         </div>
 
         {/* Swiper Carousel */}
@@ -289,7 +295,7 @@ export default function Events() {
         }
         
         .events-swiper .swiper-slide:not(.swiper-slide-active) {
-          opacity: 0.7;
+          opacity: 0.5;
           transform: scale(0.9);
           z-index: 5;
         }
