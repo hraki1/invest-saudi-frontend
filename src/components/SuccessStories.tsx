@@ -40,7 +40,7 @@ const successStories: SuccessStory[] = [
     name: "John Smith",
     title: "Managing Partner",
     description:
-      "We have been here for the kingdom, from Riyadh to Jeddah, helping transform the business landscape. PwC's commitment to Saudi Arabia's Vision 2030 has been demonstrated through our extensive support in strategic planning, digital transformation, and economic diversification initiatives.",
+      "Huawei Cloud Saudi Arabia has been instrumental sdgsd sgsgsd sgsgsb sdgsdgsd sgsgsds sdgs zsvsvsavgs sz bs xbsb  sb z zsbsssssssssssssssssssssssssss sgs  s in uplifting the digital infrastructure by increasing cloud adoption, enhancing connectivity, and supporting the Kingdom's tech transformation goals. Our investment reflects our confidence in Saudi Arabia's digital future.",
     color: "#7C3AED",
   },
   {
@@ -98,32 +98,42 @@ export default function SuccessStories() {
         }}
       ></div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-visible">
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 md:mb-16 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 sm:mb-12 md:mb-16 lg:mb-20 tracking-tight">
           Success Stories
         </h2>
 
         {/* Swiper Carousel */}
-        <div className="mb-8 md:mb-12 overflow-visible">
+        <div
+          className={`mb-8 md:mb-12 lg:mb-16 container mx-auto overflow-visible `}
+        >
           <Swiper
             modules={[Navigation, Pagination]}
-            // slidesPerView={1.3}
+            slidesPerView={0.92}
             spaceBetween={-900}
-            // breakpoints={{
-            //   768: {
-            //     slidesPerView: 1.5,
-            //     spaceBetween: -100,
-            //   },
-            //   1024: {
-            //     slidesPerView: 1.8,
-            //     spaceBetween: -100,
-            //   },
-            //   1280: {
-            //     slidesPerView: 2,
-            //     spaceBetween: -2000,
-            //   },
-            // }}
+            breakpoints={{
+              480: {
+                slidesPerView: 1.0,
+                spaceBetween: -72,
+              },
+              640: {
+                slidesPerView: 1.08,
+                spaceBetween: -48,
+              },
+              768: {
+                slidesPerView: 1.14,
+                spaceBetween: -72,
+              },
+              1024: {
+                slidesPerView: 1.2,
+                spaceBetween: -96,
+              },
+              1280: {
+                slidesPerView: 1.3,
+                spaceBetween: -840,
+              },
+            }}
             navigation={{
               nextEl: ".success-stories-next",
               prevEl: ".success-stories-prev",
@@ -131,12 +141,10 @@ export default function SuccessStories() {
             pagination={{
               el: ".success-stories-pagination",
               clickable: true,
-              renderBullet: (_index, className) => {
-                return `<span class="${className} success-pagination-bullet" style="width: 24px; height: 2px; border-radius: 0; background: rgba(255, 255, 255, 0.4); margin: 0 4px; transition: all 0.3s;"></span>`;
-              },
+              type: "bullets",
             }}
             onSwiper={setSwiper}
-            className="success-stories-swiper stacked-cards"
+            className="success-stories-swiper stacked-cards "
           >
             {successStories.map((story) => (
               <SwiperSlide key={story.id} className="!h-auto stacked-slide">
@@ -152,20 +160,20 @@ export default function SuccessStories() {
                       : undefined
                   }
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[500px]">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 h-full min-h-[220px] sm:min-h-[460px]">
                     {/* Left Panel - Image/Video */}
-                    <div className="relative">
+                    <div className="relative min-h-[200px] sm:min-h-[280px] lg:min-h-0">
                       {story.hasVideo && story.image ? (
-                        <div className="relative h-full">
+                        <div className="relative h-full w-full">
                           <img
                             src={story.image}
                             alt={story.name}
                             className="w-full h-full object-cover"
                           />
                           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                            <button className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/50 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center hover:bg-black/70 transition-all group">
+                            <button className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-black/50 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center hover:bg-black/70 transition-all group">
                               <svg
-                                className="w-8 h-8 md:w-10 md:h-10 text-white ml-1 group-hover:scale-110 transition-transform"
+                                className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white ml-1 group-hover:scale-110 transition-transform"
                                 fill="currentColor"
                                 viewBox="0 0 24 24"
                               >
@@ -174,19 +182,19 @@ export default function SuccessStories() {
                             </button>
                           </div>
                           {/* Brand Label on Image */}
-                          <div className="absolute top-4 left-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-                            <span className="text-white text-sm font-semibold uppercase tracking-wide">
+                          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-3 sm:py-1 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+                            <span className="text-white text-xs sm:text-sm font-semibold uppercase tracking-wide">
                               {story.brand}
                             </span>
                           </div>
                         </div>
                       ) : (
                         <div
-                          className="h-full flex items-center justify-center p-8"
+                          className="h-full w-full flex items-center justify-center p-4 sm:p-6"
                           style={{ backgroundColor: story.color }}
                         >
                           <div className="text-center">
-                            <h3 className="text-white text-3xl md:text-4xl font-bold mb-2">
+                            <h3 className="text-white text-xl sm:text-3xl md:text-4xl font-bold mb-2">
                               {story.brand}
                             </h3>
                           </div>
@@ -195,17 +203,17 @@ export default function SuccessStories() {
                     </div>
 
                     {/* Right Panel - Content */}
-                    <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-between">
                       {/* Logo */}
-                      <div className="mb-6">
-                        <h3 className="text-white text-3xl md:text-4xl font-bold mb-4">
+                      <div className="mb-4 sm:mb-6">
+                        <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                           {story.brand}
                         </h3>
 
                         {/* Category Tag */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-black rounded-lg border border-teal-400/60 mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-black rounded-lg border border-teal-400/60 mb-4 sm:mb-6">
                           <svg
-                            className="w-4 h-4 text-teal-400"
+                            className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-400"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -225,34 +233,34 @@ export default function SuccessStories() {
                               d="M18 9l-3-3m0 0l-3 3m3-3v12"
                             />
                           </svg>
-                          <span className="text-white text-sm font-medium">
+                          <span className="text-white text-xs sm:text-sm font-medium">
                             {story.category}
                           </span>
                         </div>
 
                         {/* Name and Title */}
-                        <h4 className="text-white text-2xl md:text-3xl font-bold mb-2">
+                        <h4 className="text-white text-lg sm:text-2xl md:text-3xl font-bold mb-1.5 sm:mb-2">
                           {story.name}
                         </h4>
-                        <p className="text-white/90 text-base md:text-lg mb-6">
+                        <p className="text-white/90 text-xs sm:text-base md:text-lg mb-4 sm:mb-6">
                           {story.title}
                         </p>
 
                         {/* Description */}
-                        <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8">
+                        <p className="text-white/80 text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8">
                           {story.description}
                         </p>
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <button className="px-6 py-3 bg-white text-teal-600 rounded-lg font-bold text-sm hover:bg-gray-100 transition-all flex items-center justify-center gap-2">
+                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                        <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white text-teal-600 rounded-lg font-bold text-xs sm:text-sm hover:bg-gray-100 transition-all flex items-center justify-center gap-2">
                           <span>Read more</span>
                         </button>
                         {story.hasVideo && (
-                          <button className="px-6 py-3 bg-teal-500 text-white rounded-lg font-bold text-sm hover:bg-teal-600 transition-all flex items-center justify-center gap-2">
+                          <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-teal-500 text-white rounded-lg font-bold text-xs sm:text-sm hover:bg-teal-600 transition-all flex items-center justify-center gap-2">
                             <svg
-                              className="w-5 h-5"
+                              className="w-4 h-4 sm:w-5 sm:h-5"
                               fill="currentColor"
                               viewBox="0 0 24 24"
                             >
@@ -271,8 +279,8 @@ export default function SuccessStories() {
         </div>
 
         {/* Navigation and Pagination */}
-        <div className="flex items-center justify-center gap-6 mb-8 md:mb-12">
-          <button className="success-stories-prev text-white hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 md:mb-12 px-4 sm:px-0">
+          <button className="success-stories-prev text-white hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer order-2 sm:order-1">
             <svg
               className="w-5 h-5"
               fill="none"
@@ -286,13 +294,19 @@ export default function SuccessStories() {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            <span className="text-sm md:text-base font-medium">Previous</span>
+            <span className="text-sm md:text-base font-medium hidden sm:inline">
+              Previous
+            </span>
+            <span className="text-sm font-medium sm:hidden">Prev</span>
           </button>
 
-          <div className="success-stories-pagination flex items-center gap-2"></div>
+          <div className="success-stories-pagination swiper-pagination order-1 sm:order-2"></div>
 
-          <button className="success-stories-next text-white hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer">
-            <span className="text-sm md:text-base font-medium">Next</span>
+          <button className="success-stories-next text-white hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer order-3">
+            <span className="text-sm md:text-base font-medium hidden sm:inline">
+              Next
+            </span>
+            <span className="text-sm font-medium sm:hidden">Next</span>
             <svg
               className="w-5 h-5"
               fill="none"
@@ -310,11 +324,11 @@ export default function SuccessStories() {
         </div>
 
         {/* Bottom CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-          <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-lg font-semibold hover:border-white/50 hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 px-4 sm:px-0">
+          <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/30 text-white rounded-lg font-semibold hover:border-white/50 hover:bg-white/5 transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
             <span>View All Stories</span>
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -327,10 +341,10 @@ export default function SuccessStories() {
               />
             </svg>
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-600 transition-all flex items-center justify-center gap-2">
+          <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-600 transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
             <span>Join Us For Testimonials</span>
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 sm:w-5 sm:h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -345,74 +359,6 @@ export default function SuccessStories() {
           </button>
         </div>
       </div>
-
-      <style>{`
-        .success-stories-swiper.stacked-cards {
-          padding: 40px 0 80px 0 !important;
-          overflow: visible !important;
-          margin: 0 !important;
-        }
-        
-        .success-stories-swiper.stacked-cards .swiper-container {
-          overflow: visible !important;
-        }
-        
-        .success-stories-swiper.stacked-cards .swiper-wrapper {
-          align-items: center;
-        }
-        
-        .success-stories-swiper.stacked-cards .stacked-slide {
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-          transform-origin: left center;
-        }
-        
-        .success-stories-swiper.stacked-cards .stacked-slide:not(.swiper-slide-active) {
-          transform: scale(0.95) !important;
-          opacity: 0.95;
-          filter: brightness(0.95);
-          z-index: 1;
-          pointer-events: none;
-        }
-        
-        .success-stories-swiper.stacked-cards .stacked-slide.swiper-slide-active {
-          transform: scale(1) !important;
-          opacity: 1;
-          z-index: 10;
-          filter: brightness(1);
-        }
-        
-        .success-stories-swiper.stacked-cards .stacked-slide.swiper-slide-next {
-          transform: scale(0.97) !important;
-          opacity: 0.97;
-          z-index: 5;
-        }
-        
-        .success-stories-swiper.stacked-cards .stacked-slide.swiper-slide-prev {
-          transform: scale(0.97) !important;
-          opacity: 0.97;
-          z-index: 5;
-        }
-        
-        .success-stories-swiper .success-pagination-bullet {
-          width: 24px !important;
-          height: 2px !important;
-          border-radius: 0 !important;
-          background: rgba(255, 255, 255, 0.4) !important;
-          margin: 0 4px !important;
-          transition: all 0.3s !important;
-        }
-        
-        .success-stories-swiper .success-pagination-bullet-active {
-          width: 32px !important;
-          background: rgba(255, 255, 255, 1) !important;
-        }
-        
-        .success-stories-swiper .swiper-button-disabled {
-          opacity: 0.3;
-          cursor: not-allowed;
-        }
-      `}</style>
     </section>
   );
 }
-

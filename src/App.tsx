@@ -15,7 +15,7 @@ import Miza from './components/Miza';
 import Events from './components/Events';
 import InvestorMatchmaking from './components/InvestorMatchmaking';
 import EServices from './components/EServices';
-import RHQService from './components/RHQService';
+import NationalPrograms from './components/NationalPrograms';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
       <Events />
       <InvestorMatchmaking />
       <EServices />
-      <RHQService />
+      <NationalPrograms />
       <RegulatoryAgreement />
       <Footer />
     </div>

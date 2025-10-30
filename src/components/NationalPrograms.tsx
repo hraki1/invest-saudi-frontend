@@ -19,7 +19,7 @@ interface RHQSection {
   icon: string;
 }
 
-export default function RHQService() {
+export default function NationalPrograms() {
   const { t } = useTranslation();
   const [, setSwiper] = useState<SwiperType | null>(null);
 
@@ -188,12 +188,13 @@ export default function RHQService() {
       ></div>
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 lg:gap-12">
+        <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-16">
+          {t("rhq_service.national_programs_title")}
+        </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 lg:gap-12 my-26">
           {/* Left Side - National Programs List */}
           <div className="lg:sticky lg:top-8 h-fit">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              {t("rhq_service.national_programs_title")}
-            </h3>
+           
 
             {/* Scroll Indicators */}
             <div className="flex justify-center mb-4 lg:hidden">
@@ -225,7 +226,11 @@ export default function RHQService() {
                 }}
                 onSwiper={setSwiper}
                 className="rhq-programs-swiper"
-                style={{ height: "calc(100vh - 200px)", maxHeight: "800px", minHeight: "500px" }}
+                style={{
+                  height: "calc(100vh - 200px)",
+                  maxHeight: "800px",
+                  minHeight: "500px",
+                }}
               >
                 {programs.map((program) => (
                   <SwiperSlide
@@ -396,7 +401,7 @@ export default function RHQService() {
           </div>
 
           {/* Right Side - RHQ Details */}
-          <div className="flex flex-col relative">
+          <div className="flex flex-col relative p-8 backdrop-blur-3xl rounded-2xl bg-black/50">
             {/* Background Pattern for Right Side */}
             <div
               className="absolute inset-0 opacity-[0.02] pointer-events-none"
@@ -410,7 +415,7 @@ export default function RHQService() {
             <div className="relative z-10">
               {/* Title and Subtitle */}
               <div className="mb-8 md:mb-12">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
                   {t("rhq_service.title")}
                 </h2>
                 <p className="text-white/80 text-base md:text-lg leading-relaxed max-w-4xl">
@@ -418,32 +423,32 @@ export default function RHQService() {
                 </p>
               </div>
 
-            {/* RHQ Sections Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
-              {rhqSections.map((section) => (
-                <div
-                  key={section.id}
-                  className="p-6 rounded-xl bg-[#1a2332]/60 backdrop-blur-sm border border-white/10 hover:bg-[#1a2332]/80 transition-all"
-                >
-                  <div className="flex items-start gap-4">
-                    {/* Icon */}
-                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/10 rounded-lg">
-                      {renderIcon(section.icon)}
-                    </div>
+              {/* RHQ Sections Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
+                {rhqSections.map((section) => (
+                  <div
+                    key={section.id}
+                    className="p-6 rounded-xl bg-[#1a2332]/60 backdrop-blur-sm border border-white/10 hover:bg-[#1a2332]/80 transition-all"
+                  >
+                    <div className="flex items-start gap-4">
+                      {/* Icon */}
+                      <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/10 rounded-lg">
+                        {renderIcon(section.icon)}
+                      </div>
 
-                    {/* Content */}
-                    <div className="flex-1">
-                      <h3 className="text-white text-xl font-bold mb-3">
-                        {section.title}
-                      </h3>
-                      <p className="text-white/70 text-sm md:text-base leading-relaxed">
-                        {section.description}
-                      </p>
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h3 className="text-white text-xl font-bold mb-3">
+                          {section.title}
+                        </h3>
+                        <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                          {section.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-auto">
@@ -507,4 +512,3 @@ export default function RHQService() {
     </section>
   );
 }
-

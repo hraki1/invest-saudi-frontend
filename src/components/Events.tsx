@@ -164,17 +164,17 @@ export default function Events() {
             key={filteredEvents.length}
             modules={[Navigation, Pagination]}
             slidesPerView={1.2}
-            spaceBetween={20}
+            spaceBetween={-90}
             centeredSlides={true}
             loop={false}
             breakpoints={{
               768: {
                 slidesPerView: 1.5,
-                spaceBetween: 30,
+                spaceBetween: -80,
               },
               1024: {
                 slidesPerView: 1.8,
-                spaceBetween: 40,
+                spaceBetween: -90,
               },
             }}
             navigation={{
@@ -290,12 +290,14 @@ export default function Events() {
         
         .events-swiper .swiper-slide:not(.swiper-slide-active) {
           opacity: 0.7;
-          transform: scale(0.95);
+          transform: scale(0.9);
+          z-index: 5;
         }
         
         .events-swiper .swiper-slide-active {
           opacity: 1;
           transform: scale(1);
+          z-index: 10;
         }
         
         .events-swiper .events-prev,
