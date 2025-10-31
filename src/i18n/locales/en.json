@@ -319,5 +319,21 @@
   "stocks": {
     "title": "Stocks",
     "choose_another": "Choose Another"
+  },
+  "chat": {
+    "button_text": "Chat with us",
+    "title": "Chat Support",
+    "status": "Online",
+    "input_placeholder": "Type your message...",
+    "welcome_message": "Hello! How can I help you with investment opportunities in Saudi Arabia?",
+    "responses": {
+      "investment": "Saudi Arabia offers excellent investment opportunities across various sectors including technology, energy, tourism, and manufacturing. Would you like to know more about a specific sector?",
+      "visa": "For visa and travel information, please visit our services section or contact our support team directly.",
+      "contact": "You can reach us through our contact form, email, or phone. Check the footer section for all contact details.",
+      "greeting": "Hello! I'm here to help you with investment opportunities in Saudi Arabia. What would you like to know?",
+      "sectors": "Key investment sectors include Energy & Renewables, Tourism & Entertainment, Technology & Innovation, Manufacturing, Healthcare, and Finance. Which sector interests you?",
+      "opportunities": "Explore our opportunities section to discover regional investment opportunities across different regions of Saudi Arabia.",
+      "default": "Thank you for your message. Our team will get back to you soon. In the meantime, you can explore our website for more information about investment opportunities in Saudi Arabia."
+    }
   }
 }

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
 
 export default function Footer() {
   const { i18n } = useTranslation();
@@ -150,28 +149,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Chat Widget */}
-            <div className="relative inline-block w-fit">
-              <button className="px-6 py-3 rounded-lg bg-white text-gray-800 font-semibold bukra-bold border border-gray-300 hover:bg-gray-50 transition-colors shadow-sm">
-                Chat with us
-              </button>
-              
-              {/* Floating Chat Bubble */}
-              <div className="absolute -bottom-2 -right-2 z-10">
-                <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg relative"
-                  style={{
-                    background: 'linear-gradient(135deg, #814A98 0%, #017BBA 100%)'
-                  }}
-                >
-                  <HiOutlineChatBubbleLeftRight className="w-6 h-6" />
-                  {/* Notification Badge */}
-                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
-                    <span className="text-xs text-white font-bold">02</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>

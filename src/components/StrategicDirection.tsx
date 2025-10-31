@@ -328,11 +328,11 @@ export default function StrategicDirection() {
   };
 
   return (
-    <section className="relative pt-12 md:pt-20 bg-gradient-to-br from-green-950 via-teal-950 to-blue-950">
+    <section className="relative pt-12 md:pt-10 bg-gradient-to-br from-green-950 via-teal-950 to-blue-950">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/saudiFlag.png"
+          src="/investmentDestination-hero.png"
           alt="Saudi Arabia landscape"
           className="w-full h-full object-cover"
         />
@@ -476,21 +476,23 @@ export default function StrategicDirection() {
                     {column.map((metric, idx) => (
                       <div
                         key={idx}
-                        className={`space-y-2.5 px-4 xl:px-9 ${
-                          colIdx > 0 ? "gradient-border-left" : ""
-                        }`}
+                        className={` space-y-2.5 pb-3 px-4 xl:px-9 ${
+                          colIdx > 0 ? "md:gradient-border-left" : ""
+                        }` 
+                      
+                      }
                       >
-                        <p className="text-white text-xs md:text-sm leading-relaxed">
+                        <p className="text-white text-sm md:text-sm leading-relaxed">
                           {metric.label}
                         </p>
                         <div className="flex gap-2.5 items-center flex-nowrap text-[28px] text-center">
-                          <div className="flex justify-center gap-1 items-start backdrop-blur-sm w-[100px] md:w-[120px] xl:w-[137px] rounded-lg text-white text-base md:text-lg 2xl:text-[28px] font-semibold whitespace-nowrap flex-shrink-0 relative">
+                          <div className="flex justify-center gap-1 p-1 md:p-0 items-start backdrop-blur-sm w-[100px] md:w-[120px] xl:w-[137px] rounded-lg text-white text-base md:text-lg 2xl:text-[28px] font-semibold whitespace-nowrap flex-shrink-0 relative">
                             {metric.baseline}
                             {metric.suffix && (
                               <div className="text-xs">{metric.suffix}</div>
                             )}
                           </div>
-                          <div className="flex justify-center gap-1 items-center bg-[#006461] w-[100px] md:w-[120px] xl:w-[137px] rounded-lg text-white text-base md:text-lg 2xl:text-[28px]  font-semibold whitespace-nowrap flex-shrink-0 relative">
+                          <div className="flex justify-center gap-1 p-1 md:p-0 items-center bg-[#006461] w-[100px] md:w-[120px] xl:w-[137px] rounded-lg text-white text-base md:text-lg 2xl:text-[28px]  font-semibold whitespace-nowrap flex-shrink-0 relative">
                             <div className="flex justify-center gap-1 items-start">
                               {metric.current}
                               {metric.suffix && (
@@ -499,7 +501,7 @@ export default function StrategicDirection() {
                             </div>
                             <TbArrowCurveRight className="rotate-45" />
                           </div>
-                          <div className="flex justify-center gap-1 items-start bg-[#4D2C5B] w-[100px] md:w-[120px] xl:w-[137px]  rounded-lg text-white text-base md:text-lg 2xl:text-[28px]  font-semibold whitespace-nowrap flex-shrink-0">
+                          <div className="flex justify-center gap-1 p-1 md:p-0 items-start bg-[#4D2C5B] w-[100px] md:w-[120px] xl:w-[137px]  rounded-lg text-white text-base md:text-lg 2xl:text-[28px]  font-semibold whitespace-nowrap flex-shrink-0">
                             {metric.target}
                             {metric.suffix && (
                               <div className="text-xs">{metric.suffix}</div>

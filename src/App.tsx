@@ -19,6 +19,7 @@ import NationalPrograms from './components/NationalPrograms';
 import Stocks from './components/Stocks';
 // import SaudiMap from './components/SaudiMap';
 import QRCard from './components/QRCard';
+import Chatbot from './components/Chatbot';
 // import Orieb from './components/Orieb';
 // import Ahmad from './components/ahmad';
 
@@ -48,6 +49,7 @@ function App() {
       <RegulatoryAgreement />
       <QRCard />
       <Footer />
+      <Chatbot />
     </div>
   );
 }
