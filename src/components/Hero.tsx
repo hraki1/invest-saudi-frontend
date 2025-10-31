@@ -46,13 +46,14 @@ export default function Hero() {
       className="relative h-screen flex items-end overflow-hidden"
     >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 ">
         <img
           src="/Hero.png"
           alt="Saudi Arabia landscape"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/0,0,0,0.5 via-black/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black"></div>
       </div>
 
       {/*  main content container */}
@@ -97,7 +98,7 @@ export default function Hero() {
         </div>
 
         {/* Stats Section */}
-        <div className="hidden md:block relative z-10 bg-black/30 backdrop-blur-sm px-4  ">
+        <div className="hidden md:block relative z-10 bg-black/30 backdrop-blur-sm px-4 border-t border-white/10  ">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-3">
             {stats.map((stat, index) => {
               const IconComponent = stat.icon;

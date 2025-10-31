@@ -103,7 +103,7 @@ export default function Opportunities() {
           alt="Opportunities Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 "></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/* Background Pattern */}
@@ -118,10 +118,10 @@ export default function Opportunities() {
         ></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-12 relative z-10">
+      <div className="container mx-auto px-6 md:px-12 lg:px-5 relative z-10">
         {/* Title with dotted border */}
-        <div className="pt-8 mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white">
+        <div className="pt-8 mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             {t("opportunities.title")}
           </h2>
         </div>
@@ -135,13 +135,13 @@ export default function Opportunities() {
 
           {/* Right Column - Details */}
           {activeRegion && (
-            <div className="space-y-8 bg-black/50 p-4 md:p-7 rounded-2xl">
-              {/* Key Figures */}
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-base md:text-[22px] font-light text-white">
+            <div className="space-y-8 bg-black/60 p-4 md:p-5 rounded-2xl backdrop-blur-sm">
+            {/* Key Figures */}
+            <div>
+                <div className="flex items-center justify-between mb-4">
+                <h3 className="text-base md:text-[22px] font-light text-white">
                     {activeRegion.name} {t("opportunities.key_figures")}
-                  </h3>
+                </h3>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => swiperRef.current?.slidePrev()}
@@ -192,10 +192,10 @@ export default function Opportunities() {
                       </svg>
                     </button>
                   </div>
-                </div>
+              </div>
 
                 {/* Swiper Container */}
-                <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 md:p-6">
+                <div className=" backdrop-blur-sm rounded-2xl p-4 md:p-5">
                   <Swiper
                     onSwiper={(swiper) => {
                       swiperRef.current = swiper;
@@ -235,50 +235,50 @@ export default function Opportunities() {
                         }
                         return slides.map((slideFigures, slideIdx) => (
                           <SwiperSlide key={slideIdx}>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-2 gap-2">
                               {slideFigures.map((stat, idx) => (
-                                <div key={idx} className="p-4">
-                                  <div className="mb-3">
+                                <div key={idx} className="p-2">
+                                  <div >
                                     <div className="flex items-center gap-2 mb-1">
-                                      <CounterNumber
-                                        value={stat.value}
-                                        suffix={stat.suffix}
-                                        animationDuration={0.8}
-                                        className="text-2xl md:text-[43px] font-light text-white"
-                                        suffixClassName="text-2xl md:text-[43px] font-light text-white px-1"
-                                        enableScaleAnimation={true}
-                                      />
-                                      <div className="flex items-center gap-1">
-                                        <img
-                                          src="./icons/trend-up.png"
-                                          alt=""
+                      <CounterNumber
+                        value={stat.value}
+                        suffix={stat.suffix}
+                        animationDuration={0.8}
+                        className="text-2xl md:text-[43px] font-light text-white"
+                        suffixClassName="text-2xl md:text-[43px] font-light text-white px-1"
+                        enableScaleAnimation={true}
+                      />
+                        <div className="flex items-center gap-1">
+                          <img
+                            src="./icons/trend-up.png"
+                            alt=""
                                           className="w-3 h-3 md:w-4 md:h-4"
                                         />
                                         <span className="text-xs md:text-sm text-[#00A7A2]">
                                           {stat.change}
                                         </span>
-                                      </div>
-                                    </div>
+                      </div>
+                    </div>
                                     <p className="text-sm md:text-base text-gray-400 leading-tight">
-                                      {stat.label}
-                                    </p>
+                      {stat.label}
+                    </p>
                                   </div>
-                                </div>
-                              ))}
+                  </div>
+                ))}
                             </div>
                           </SwiperSlide>
                         ));
                       })()}
                   </Swiper>
-                </div>
               </div>
+            </div>
 
               {/* key strategic sector */}
-              <div>
+            <div>
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-sm font-medium text-slate-400">
                     Key Strategic Sector
-                  </h4>
+              </h4>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => sectorSwiperRef.current?.slidePrev()}
@@ -351,7 +351,7 @@ export default function Opportunities() {
                 >
                   {activeRegion.keyStrategicSectors.map((sector, idx) => (
                     <SwiperSlide key={idx} className="!h-auto">
-                      <div className="rounded-xl bg-black/40 border border-white/10 p-4 h-full flex items-center gap-4">
+                      <div className="rounded-xl bg-black/40 border border-white/10 p-3 h-full flex flex-col items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
                           <img
                             src={sector.icon}
@@ -359,14 +359,14 @@ export default function Opportunities() {
                             className="w-6 h-6 object-contain opacity-90"
                           />
                         </div>
-                        <p className="text-white text-sm md:text-base leading-tight">
+                        <p className="text-white text-sm md:text-base leading-tight text-center">
                           {sector.title}
-                        </p>
-                      </div>
+                      </p>
+                    </div>
                     </SwiperSlide>
                   ))}
                 </Swiper>
-              </div>
+                  </div>
 
               {/* Key Regional Projects */}
               <div>
@@ -423,7 +423,7 @@ export default function Opportunities() {
                         />
                       </svg>
                     </button>
-                  </div>
+              </div>
                 </div>
 
                 <Swiper
@@ -457,14 +457,14 @@ export default function Opportunities() {
                     </SwiperSlide>
                   ))}
                 </Swiper>
-              </div>
+            </div>
 
-              {/* Opportunities */}
-              <div>
+            {/* Opportunities */}
+            <div>
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-sm font-medium text-slate-400">
                     Opportunities
-                  </h4>
+              </h4>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() =>
@@ -537,22 +537,23 @@ export default function Opportunities() {
                 >
                   {activeRegion.opportunities.map((opportunity, idx) => (
                     <SwiperSlide key={idx} className="!h-auto">
+
                       <div
-                        className={`rounded-xl bg-gradient-to-b ${opportunity.gradient} border border-white/10 p-6 h-full flex flex-col cursor-pointer transition-transform hover:scale-[1.02]`}
+                        className={`rounded-lg backdrop-blur-sm bg-gradient-to-br from-[#000]/60  ${opportunity.gradient} border border-white/20 p-3 h-full flex flex-col cursor-pointer transition-transform hover:scale-[1.02]`}
                       >
                         <div
-                          className={`${opportunity.categoryColor} rounded-full px-3 py-1.5 mb-4 inline-block w-fit`}
+                          className={`${opportunity.categoryColor} rounded-full px-3 flex items-center justify-center py-1.5 mb-4  w-fit`}
                         >
                           <span className="text-white text-xs font-medium">
                             {opportunity.category}
                           </span>
                         </div>
                         <p className="text-white text-sm sm:text-base font-medium leading-tight flex-1">
-                          {opportunity.title}
-                        </p>
-                      </div>
+                        {opportunity.title}
+                      </p>
+                    </div>
                     </SwiperSlide>
-                  ))}
+                ))}
                 </Swiper>
               </div>
             </div>

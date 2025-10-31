@@ -16,6 +16,7 @@ import Events from './components/Events';
 import InvestorMatchmaking from './components/InvestorMatchmaking';
 import EServices from './components/EServices';
 import NationalPrograms from './components/NationalPrograms';
+import Stocks from './components/Stocks';
 // import SaudiMap from './components/SaudiMap';
 import QRCard from './components/QRCard';
 // import Orieb from './components/Orieb';
@@ -26,6 +27,7 @@ function App() {
     <div className="min-h-screen duration-300">
       <Navbar />
       <Hero />
+      <Stocks />
       {/* <Ahmad />
       <Orieb /> */}
       {/* <SaudiMap /> */}

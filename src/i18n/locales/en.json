@@ -315,5 +315,9 @@
       "talk_to_advisor": "Talk to Advisor",
       "visit_rhq": "Visit RHQ"
     }
+  },
+  "stocks": {
+    "title": "Stocks",
+    "choose_another": "Choose Another"
   }
 }

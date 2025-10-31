@@ -164,28 +164,28 @@ interface KeyFigure {
       ],
       opportunities: [
         {
-          title: "Hot-Rolled Coil Steel Manufacturing",
+          title: "Hot-Rolled Coil Steel",
           category: "Environmental Services",
           categoryColor: "bg-[#00A7A2]",
-          gradient: "from-[#00A7A2]/20 to-[#003d3a]/40",
+          gradient: "to-[#003d3a]",
         },
         {
-          title: "Development Of A Facility To Manufacture Steel Pipes For Water Infrastructure",
+          title: "Development Of A Facility",
           category: "Environmental Services",
           categoryColor: "bg-purple-500",
-          gradient: "from-purple-500/20 to-purple-900/40",
+          gradient: "to-purple-900/40",
         },
         {
           title: "Advanced Manufacturing",
           category: "Manufacturing",
           categoryColor: "bg-[#00A7A2]",
-          gradient: "from-[#00A7A2]/20 to-[#003d3a]/40",
+          gradient: "to-[#003d3a]/40",
         },
         {
           title: "Aerospace & Defense",
           category: "Aerospace",
           categoryColor: "bg-purple-500",
-          gradient: "from-purple-500/20 to-purple-900/40",
+          gradient: "to-purple-900/40",
         },
       ],
     },
@@ -350,7 +350,7 @@ interface KeyFigure {
           gradient: "from-[#00A7A2]/20 to-[#003d3a]/40",
         },
         {
-          title: "Petrochemical Manufacturing Facility",
+          title: "Petrochemical Manufacturing",
           category: "Energy",
           categoryColor: "bg-purple-500",
           gradient: "from-purple-500/20 to-purple-900/40",

@@ -16,7 +16,7 @@ const SvgComponent = (props: SvgComponentProps) => {
 
   return (
     // <section className="w-full min-h-[400px] md:min-h-[600px] lg:h-screen flex items-center justify-center p-4 md:p-8 overflow-hidden">
-      <div className="w-[400px] md:w-[500px] lg:w-[600px] mx-auto md:mx-0 h-auto aspect-[730/664]">
+      <div className="w-[400px] md:w-[500px] lg:w-[650px] mx-auto md:mx-0 h-auto aspect-[730/664]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
