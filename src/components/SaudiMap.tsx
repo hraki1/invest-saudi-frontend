@@ -2,19 +2,21 @@ import { useState } from "react";
 
 interface SvgComponentProps {
   [key: string]: unknown;
+  setActiveRegionByName: (regionName: string) => void;
 }
 
 const SvgComponent = (props: SvgComponentProps) => {
-  const [activeRegion, setActiveRegion] = useState<string | null>(null);
+  const [activeRegion, setActiveRegion] = useState<string | null>("Riyadh");
   const handleRegionClick = (regionName: string) => {
     setActiveRegion(regionName);
+    props.setActiveRegionByName(regionName);
     console.log(`Clicked region: ${regionName}`);
     // You can add navigation or other actions here
   };
 
   return (
-    <section className="w-full min-h-[400px] md:min-h-[600px] lg:h-screen flex items-center justify-center p-4 md:p-8 overflow-hidden">
-      <div className="w-[500px] md:w-[500px] lg:w-[700px]   mx-auto h-auto aspect-[730/664]">
+    // <section className="w-full min-h-[400px] md:min-h-[600px] lg:h-screen flex items-center justify-center p-4 md:p-8 overflow-hidden">
+      <div className="w-[400px] md:w-[500px] lg:w-[600px] mx-auto md:mx-0 h-auto aspect-[730/664]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
@@ -565,7 +567,7 @@ const SvgComponent = (props: SvgComponentProps) => {
           </defs>
         </svg>
       </div>
-    </section>
+    // {/* </section> */}
   );
 };
 

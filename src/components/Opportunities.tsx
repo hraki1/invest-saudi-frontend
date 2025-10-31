@@ -1,194 +1,98 @@
 import { useTranslation } from "react-i18next";
+import { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import CounterNumber from "./CounterNumber";
+import SaudiMap from "./SaudiMap";
+import { regionData } from "../data/regionData";
 
 export default function Opportunities() {
   const { t } = useTranslation();
 
-  const regionData = {
-    riyadh: {
-      name: t("opportunities.regions.riyadh"),
-      keyFigures: [
-        {
-          value: "936",
-          suffix: "B",
-          label: t("opportunities.stats.gdp_ranking"),
-          change: "100%",
-          trend: "up",
-        },
-        {
-          value: "47",
-          suffix: "%",
-          label: t("opportunities.stats.private_sector"),
-          change: "100%",
-          trend: "up",
-        },
-        {
-          value: "38",
-          suffix: "th",
-          label: t("opportunities.stats.logistics"),
-          change: "100%",
-          trend: "up",
-        },
-        {
-          value: "2.4",
-          suffix: "%",
-          label: t("opportunities.stats.fdi"),
-          change: "100%",
-          trend: "up",
-        },
-      ],
-      gigaProjects: [
-        {
-          title: t("opportunities.projects.advanced_manufacturing"),
-          image: "./opportunities/1.png",
-        },
-        {
-          title: t("opportunities.projects.aerospace_defense"),
-          image: "./opportunities/2.png",
-        },
-        {
-          title: t("opportunities.projects.agriculture_food"),
-          image: "./opportunities/3.png",
-        },
-      ],
-      opportunities: [
-        {
-          title: t("opportunities.projects.advanced_manufacturing"),
-          image: "./opportunities/1.png",
-        },
-        {
-          title: t("opportunities.projects.aerospace_defense"),
-          image: "./opportunities/2.png",
-        },
-        {
-          title: t("opportunities.projects.agriculture_food"),
-          image: "./opportunities/3.png",
-        },
-      ],
-    },
-    makkah: {
-      name: t("opportunities.regions.makkah"),
-      keyFigures: [
-        {
-          value: "850 B",
-          label: t("opportunities.stats.gdp_ranking"),
-          change: "95%",
-          trend: "up",
-        },
-        {
-          value: "42%",
-          label: t("opportunities.stats.private_sector"),
-          change: "88%",
-          trend: "up",
-        },
-        {
-          value: "35 th",
-          label: t("opportunities.stats.logistics"),
-          change: "92%",
-          trend: "up",
-        },
-        {
-          value: "2.1%",
-          label: t("opportunities.stats.fdi"),
-          change: "85%",
-          trend: "up",
-        },
-      ],
-      gigaProjects: [
-        {
-          title: t("opportunities.projects.tourism_development"),
-          image:
-            "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
-        },
-        {
-          title: t("opportunities.projects.infrastructure"),
-          image:
-            "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=300&fit=crop",
-        },
-        {
-          title: t("opportunities.projects.hospitality"),
-          image:
-            "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop",
-        },
-      ],
-      opportunities: [
-        {
-          title: t("opportunities.projects.religious_tourism"),
-          image:
-            "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=300&fit=crop",
-        },
-        {
-          title: t("opportunities.projects.real_estate"),
-          image:
-            "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
-        },
-        {
-          title: t("opportunities.projects.smart_cities"),
-          image:
-            "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=400&h=300&fit=crop",
-        },
-      ],
-    },
-    eastern: {
-      name: t("opportunities.regions.eastern"),
-      keyFigures: [
-        {
-          value: "920 B",
-          label: t("opportunities.stats.gdp_ranking"),
-          change: "105%",
-          trend: "up",
-        },
-        {
-          value: "52%",
-          label: t("opportunities.stats.private_sector"),
-          change: "98%",
-          trend: "up",
-        },
-        {
-          value: "32 th",
-          label: t("opportunities.stats.logistics"),
-          change: "102%",
-          trend: "up",
-        },
-        {
-          value: "3.1%",
-          label: t("opportunities.stats.fdi"),
-          change: "110%",
-          trend: "up",
-        },
-      ],
-      gigaProjects: [
-        {
-          title: t("opportunities.projects.energy_oil"),
-          image: "./opportunities/1.png",
-        },
-        {
-          title: t("opportunities.projects.petrochemicals"),
-          image: "./opportunities/2.png",
-        },
-        {
-          title: t("opportunities.projects.logistics_hub"),
-          image: "./opportunities/3.png",
-        },
-      ],
-      opportunities: [
-        {
-          title: t("opportunities.projects.industrial_parks"),
-          image: "./opportunities/1.png",
-        },
-        {
-          title: t("opportunities.projects.port_development"),
-          image: "./opportunities/2.png",
-        },
-        {
-          title: t("opportunities.projects.technology_sector"),
-          image: "./opportunities/3.png",
-        },
-      ],
-    },
+  const [activeRegionKey, setActiveRegionKey] = useState<string>("riyadh"); // Default to Makkah
+  const activeRegion = regionData.find(
+    (region) => region.key === activeRegionKey
+  );
+
+  const swiperRef = useRef<SwiperType | null>(null);
+  const sectorSwiperRef = useRef<SwiperType | null>(null);
+  const projectsSwiperRef = useRef<SwiperType | null>(null);
+  const opportunitiesSwiperRef = useRef<SwiperType | null>(null);
+
+  // Swiper nav disabled states
+  const [keyFiguresAtStart, setKeyFiguresAtStart] = useState<boolean>(true);
+  const [keyFiguresAtEnd, setKeyFiguresAtEnd] = useState<boolean>(false);
+  const [sectorsAtStart, setSectorsAtStart] = useState<boolean>(true);
+  const [sectorsAtEnd, setSectorsAtEnd] = useState<boolean>(false);
+  const [projectsAtStart, setProjectsAtStart] = useState<boolean>(true);
+  const [projectsAtEnd, setProjectsAtEnd] = useState<boolean>(false);
+  const [oppsAtStart, setOppsAtStart] = useState<boolean>(true);
+  const [oppsAtEnd, setOppsAtEnd] = useState<boolean>(false);
+
+  const attachNavHandlers = (
+    swiper: SwiperType,
+    setAtStart: (v: boolean) => void,
+    setAtEnd: (v: boolean) => void
+  ) => {
+    const update = () => {
+      setAtStart(swiper.isBeginning);
+      setAtEnd(swiper.isEnd);
+    };
+    update();
+    swiper.on("slideChange", update);
+    swiper.on("resize", update);
+    swiper.on("update", update);
   };
 
-  const currentData = regionData["riyadh"];
+  // Function to set active region by name (accepts region key or region name)
+  const setActiveRegionByName = (regionName: string) => {
+    const normalizedName = regionName.toLowerCase().trim();
+
+    // Try to find by key first
+    const foundRegionByKey = regionData.find(
+      (region) => region.key.toLowerCase() === normalizedName
+    );
+
+    if (foundRegionByKey) {
+      setActiveRegionKey(foundRegionByKey.key);
+      const regionIndex = regionData.indexOf(foundRegionByKey);
+      if (regionIndex !== -1) {
+        swiperRef.current?.slideTo(regionIndex);
+      }
+      // Reset other swipers to first slide
+      sectorSwiperRef.current?.slideTo(0);
+      projectsSwiperRef.current?.slideTo(0);
+      opportunitiesSwiperRef.current?.slideTo(0);
+      return;
+    }
+
+    // If not found by key, try to find by region name
+    const foundRegionByName = regionData.find(
+      (region) => region.name.toLowerCase() === normalizedName
+    );
+
+    if (foundRegionByName) {
+      setActiveRegionKey(foundRegionByName.key);
+      const regionIndex = regionData.indexOf(foundRegionByName);
+      if (regionIndex !== -1) {
+        swiperRef.current?.slideTo(regionIndex);
+      }
+      // Reset other swipers to first slide
+      sectorSwiperRef.current?.slideTo(0);
+      projectsSwiperRef.current?.slideTo(0);
+      opportunitiesSwiperRef.current?.slideTo(0);
+    }
+  };
+
+  // Expose function globally for external access
+  if (typeof window !== "undefined") {
+    (
+      window as Window & {
+        setActiveRegionByName?: (regionName: string) => void;
+      }
+    ).setActiveRegionByName = setActiveRegionByName;
+  }
 
   return (
     <section className="relative py-6 md:py-8  overflow-hidden">
@@ -214,7 +118,7 @@ export default function Opportunities() {
         ></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="container mx-auto px-6 md:px-12 lg:px-12 relative z-10">
         {/* Title with dotted border */}
         <div className="pt-8 mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white">
@@ -225,129 +129,434 @@ export default function Opportunities() {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-12 items-center">
           {/* Left Column - Map */}
-          <div className="relative">
-            <div className="relative w-full h-[500px] flex items-center justify-center">
-              {/* Saudi Arabia Map SVG */}
-              <img src="/saudi-map.png" alt="" />
-            </div>
+          <div className="relative mx-auto md:mx-0">
+            <SaudiMap setActiveRegionByName={setActiveRegionByName} />
           </div>
 
           {/* Right Column - Details */}
-          <div className="space-y-8">
-            {/* Key Figures */}
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <img src="./icons/radio.png" alt="" className="w-7 h-7" />
-                <h3 className="text-xl md:text-[45px] font-light text-white">
-                  {currentData.name} {t("opportunities.key_figures")}
-                </h3>
+          {activeRegion && (
+            <div className="space-y-8 bg-black/50 p-4 md:p-7 rounded-2xl">
+              {/* Key Figures */}
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-base md:text-[22px] font-light text-white">
+                    {activeRegion.name} {t("opportunities.key_figures")}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => swiperRef.current?.slidePrev()}
+                      disabled={keyFiguresAtStart}
+                      className={`w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        keyFiguresAtStart
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Previous"
+                    >
+                      <svg
+                        className="w-4 h-4 md:w-5 md:h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => swiperRef.current?.slideNext()}
+                      disabled={keyFiguresAtEnd}
+                      className={`w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        keyFiguresAtEnd
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Next"
+                    >
+                      <svg
+                        className="w-4 h-4 md:w-5 md:h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Swiper Container */}
+                <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 md:p-6">
+                  <Swiper
+                    onSwiper={(swiper) => {
+                      swiperRef.current = swiper;
+                      attachNavHandlers(
+                        swiper,
+                        setKeyFiguresAtStart,
+                        setKeyFiguresAtEnd
+                      );
+                    }}
+                    onSlideChange={() => {
+                      // Only reset other swipers to first slide, never change the active region from here
+                      sectorSwiperRef.current?.slideTo(0);
+                      projectsSwiperRef.current?.slideTo(0);
+                      opportunitiesSwiperRef.current?.slideTo(0);
+                    }}
+                    modules={[Navigation]}
+                    spaceBetween={16}
+                    slidesPerView={1}
+                    className="key-figures-swiper"
+                  >
+                    {activeRegion &&
+                      (() => {
+                        // Group keyFigures into sets of 4 for multiple slides
+                        const figuresPerSlide = 4;
+                        const slides = [];
+                        for (
+                          let i = 0;
+                          i < activeRegion.keyFigures.length;
+                          i += figuresPerSlide
+                        ) {
+                          slides.push(
+                            activeRegion.keyFigures.slice(
+                              i,
+                              i + figuresPerSlide
+                            )
+                          );
+                        }
+                        return slides.map((slideFigures, slideIdx) => (
+                          <SwiperSlide key={slideIdx}>
+                            <div className="grid grid-cols-2 gap-4">
+                              {slideFigures.map((stat, idx) => (
+                                <div key={idx} className="p-4">
+                                  <div className="mb-3">
+                                    <div className="flex items-center gap-2 mb-1">
+                                      <CounterNumber
+                                        value={stat.value}
+                                        suffix={stat.suffix}
+                                        animationDuration={0.8}
+                                        className="text-2xl md:text-[43px] font-light text-white"
+                                        suffixClassName="text-2xl md:text-[43px] font-light text-white px-1"
+                                        enableScaleAnimation={true}
+                                      />
+                                      <div className="flex items-center gap-1">
+                                        <img
+                                          src="./icons/trend-up.png"
+                                          alt=""
+                                          className="w-3 h-3 md:w-4 md:h-4"
+                                        />
+                                        <span className="text-xs md:text-sm text-[#00A7A2]">
+                                          {stat.change}
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <p className="text-sm md:text-base text-gray-400 leading-tight">
+                                      {stat.label}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </SwiperSlide>
+                        ));
+                      })()}
+                  </Swiper>
+                </div>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {currentData.keyFigures.map((stat, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-black/50 backdrop-blur-xl border border-black/10 rounded-2xl p-4"
-                    style={{ boxShadow: "0 0 1px 0 rgba(255, 255, 255,1)" }}
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <CounterNumber
-                        value={stat.value}
-                        suffix={stat.suffix}
-                        animationDuration={0.8}
-                        className="text-2xl md:text-[43px] font-light text-white"
-                        suffixClassName="text-2xl md:text-[43px] font-light text-white px-1"
-                        enableScaleAnimation={true}
-                      />
-                      <div className="flex flex-col items-center gap-1 text-xs text-[#00A7A2]">
-                        <div className="flex items-center gap-1">
+              {/* key strategic sector */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-sm font-medium text-slate-400">
+                    Key Strategic Sector
+                  </h4>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => sectorSwiperRef.current?.slidePrev()}
+                      disabled={sectorsAtStart}
+                      className={`w-8 h-8 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        sectorsAtStart
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Previous sectors"
+                    >
+                      <svg
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => sectorSwiperRef.current?.slideNext()}
+                      disabled={sectorsAtEnd}
+                      className={`w-8 h-8 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        sectorsAtEnd
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Next sectors"
+                    >
+                      <svg
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <Swiper
+                  onSwiper={(swiper) => {
+                    sectorSwiperRef.current = swiper;
+                    attachNavHandlers(
+                      swiper,
+                      setSectorsAtStart,
+                      setSectorsAtEnd
+                    );
+                  }}
+                  modules={[Navigation]}
+                  spaceBetween={10}
+                  slidesPerView={2}
+                  breakpoints={{
+                    640: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 },
+                  }}
+                >
+                  {activeRegion.keyStrategicSectors.map((sector, idx) => (
+                    <SwiperSlide key={idx} className="!h-auto">
+                      <div className="rounded-xl bg-black/40 border border-white/10 p-4 h-full flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
                           <img
-                            src="./icons/trend-up.png"
+                            src={sector.icon}
                             alt=""
-                            className="w-4 h-4"
+                            className="w-6 h-6 object-contain opacity-90"
                           />
-                          <span className="text-[14px">{stat.change}</span>
                         </div>
-                        <p className="text-[14px] text-gray-400 mt-1">
-                          {t("opportunities.vs_last_year")}
+                        <p className="text-white text-sm md:text-base leading-tight">
+                          {sector.title}
                         </p>
                       </div>
-                    </div>
-                    <p className="text-base text-gray-400 leading-tight">
-                      {stat.label}
-                    </p>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+              {/* Key Regional Projects */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-sm font-medium text-slate-400">
+                    Key Regional Projects
+                  </h4>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => projectsSwiperRef.current?.slidePrev()}
+                      disabled={projectsAtStart}
+                      className={`w-8 h-8 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        projectsAtStart
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Previous projects"
+                    >
+                      <svg
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => projectsSwiperRef.current?.slideNext()}
+                      disabled={projectsAtEnd}
+                      className={`w-8 h-8 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        projectsAtEnd
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Next projects"
+                    >
+                      <svg
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            {/* Giga Projects */}
-            <div>
-              <h4 className="text-sm font-medium text-slate-400 mb-4">
-                {t("opportunities.giga_projects")}
-              </h4>
-              <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
-                {currentData.gigaProjects.map((project, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative overflow-hidden rounded-lg aspect-[4/3] cursor-pointer"
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute inset-0  flex items-end">
-                      <p className="text-white text-sm sm:text-base font-medium p-2 md:p-4 leading-tight">
-                        {project.title}
-                      </p>
-                    </div>
+                <Swiper
+                  onSwiper={(swiper) => {
+                    projectsSwiperRef.current = swiper;
+                    attachNavHandlers(
+                      swiper,
+                      setProjectsAtStart,
+                      setProjectsAtEnd
+                    );
+                  }}
+                  modules={[Navigation]}
+                  spaceBetween={10}
+                  slidesPerView={2}
+                  breakpoints={{
+                    640: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 },
+                  }}
+                  className="mb-6"
+                >
+                  {activeRegion.keyRegionalProjects.map((project, idx) => (
+                    <SwiperSlide key={idx} className="!h-auto">
+                      <div className="rounded-xl bg-black/40 border border-white/10 p-6 aspect-[4/3] flex items-center justify-center">
+                        <img
+                          src={project.image}
+                          alt=""
+                          className="max-h-16 md:max-h-20 object-contain opacity-90"
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+              {/* Opportunities */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-sm font-medium text-slate-400">
+                    Opportunities
+                  </h4>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() =>
+                        opportunitiesSwiperRef.current?.slidePrev()
+                      }
+                      disabled={oppsAtStart}
+                      className={`w-8 h-8 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        oppsAtStart
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Previous opportunities"
+                    >
+                      <svg
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() =>
+                        opportunitiesSwiperRef.current?.slideNext()
+                      }
+                      disabled={oppsAtEnd}
+                      className={`w-8 h-8 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center transition-colors ${
+                        oppsAtEnd
+                          ? "opacity-40 cursor-not-allowed"
+                          : "hover:bg-gray-700/80"
+                      }`}
+                      aria-label="Next opportunities"
+                    >
+                      <svg
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
                   </div>
-                ))}
+                </div>
+
+                <Swiper
+                  onSwiper={(swiper) => {
+                    opportunitiesSwiperRef.current = swiper;
+                    attachNavHandlers(swiper, setOppsAtStart, setOppsAtEnd);
+                  }}
+                  modules={[Navigation]}
+                  spaceBetween={12}
+                  slidesPerView={1}
+                  breakpoints={{
+                    640: { slidesPerView: 2 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 2 },
+                  }}
+                >
+                  {activeRegion.opportunities.map((opportunity, idx) => (
+                    <SwiperSlide key={idx} className="!h-auto">
+                      <div
+                        className={`rounded-xl bg-gradient-to-b ${opportunity.gradient} border border-white/10 p-6 h-full flex flex-col cursor-pointer transition-transform hover:scale-[1.02]`}
+                      >
+                        <div
+                          className={`${opportunity.categoryColor} rounded-full px-3 py-1.5 mb-4 inline-block w-fit`}
+                        >
+                          <span className="text-white text-xs font-medium">
+                            {opportunity.category}
+                          </span>
+                        </div>
+                        <p className="text-white text-sm sm:text-base font-medium leading-tight flex-1">
+                          {opportunity.title}
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
-
-            {/* Opportunities */}
-            <div>
-              <h4 className="text-sm font-medium text-slate-400 mb-4">
-                {t("opportunities.opportunities_section")}
-              </h4>
-              <div className="grid grid-cols-3 gap-2 md:gap-4">
-                {currentData.opportunities.map((opportunity, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative overflow-hidden rounded-lg aspect-[4/3] cursor-pointer"
-                  >
-                    <img
-                      src={opportunity.image}
-                      alt={opportunity.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-
-                    <div className="absolute inset-0  flex items-end">
-                      <p className="text-white text-sm sm:text-base font-medium p-2 md:p-4 leading-tight">
-                        {opportunity.title}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* View More Link */}
-            <div className="relative py-6">
-              <div className="flex items-center">
-                <div className="flex-1 h-0.5 bg-white/30 backdrop-blur-sm"></div>
-                <button className="px-6 text-white text-base font-medium transition-all duration-300">
-                  {t("opportunities.view_more")}
-                </button>
-                <div className="flex-1 h-0.5 bg-white/30 backdrop-blur-sm"></div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
