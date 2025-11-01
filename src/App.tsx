@@ -10,6 +10,7 @@ import InvestSectores from './components/InvestSectores';
 import RegulatoryAgreement from './components/RegulatoryAgreement';
 import UniqueIncentives from './components/UniqueIncentives';
 import GigaProjects from './components/GigaProjects';
+import StrategicInvestorProgram from './components/StrategicInvestorProgram';
 import SuccessStories from './components/SuccessStories';
 import Miza from './components/Miza';
 import Events from './components/Events';
@@ -32,6 +33,8 @@ function App() {
       {/* <Ahmad />
       <Orieb /> */}
       {/* <SaudiMap /> */}
+      <GigaProjects />
+      <StrategicInvestorProgram />
       <Opportunities />
       <StrategicDirection />
       <Destination />
@@ -39,7 +42,6 @@ function App() {
       <KeyStrategies />
       <Test />
       <UniqueIncentives />
-      <GigaProjects />
       <SuccessStories />
       <Miza />
       <Events />

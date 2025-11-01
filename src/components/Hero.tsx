@@ -59,7 +59,7 @@ export default function Hero() {
       {/*  main content container */}
       <div>
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-12 mb-20 md:mb-20">
+        <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-12 mb-20 md:mb-[8vh]">
           <div className="max-w-2xl mb-4 md:mb-5">
             <h1 className="text-3xl bukra-bold sm:text-4xl md:text-5xl lg:text-6xl font-extralight text-white mb-6 md:mb-0 leading-snug tracking-wide">
               {t("hero.title")}
