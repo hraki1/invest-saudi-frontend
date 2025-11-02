@@ -291,7 +291,7 @@ export default function Miza() {
         </div>
 
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5 md:mb-3 leading-tight">
+        <h2 className=" text-center md:text-left text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5 md:mb-3 leading-tight">
           MIZA - Value added services support
         </h2>
 

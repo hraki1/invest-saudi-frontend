@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { 
   HiCalendar, 
@@ -78,7 +78,8 @@ type EventFilter = "all" | "upcoming" | "past" | "webinar";
 export default function Events() {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<EventFilter>("all");
-  const [, setSwiper] = useState<SwiperType | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
 
   const filteredEvents = events.filter((event) => {
@@ -88,16 +89,22 @@ export default function Events() {
     return true;
   });
 
+  // Reset active index when filter changes
+  useEffect(() => {
+    setActiveIndex(0);
+    swiperRef.current?.slideTo(0);
+  }, [activeFilter]);
+
   return (
-    <section className="relative py-16 md:py-12 md:h-screen  overflow-hidden">
+    <section className="relative py-16 md:py-12   overflow-hidden">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-purple-800/70 to-blue-900/80"></div>
+      <div className="absolute inset-0 bg-[#221E4F]"></div>
       
       {/* Geometric Pattern Overlay */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-95"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url(/event/bg.png)`,
         }}
       ></div>
 
@@ -168,7 +175,7 @@ export default function Events() {
         <div className="mb-10 md:mb-12">
           <Swiper
             key={filteredEvents.length}
-            modules={[Navigation, Pagination]}
+            modules={[Navigation]}
             slidesPerView={1.2}
             spaceBetween={-90}
             centeredSlides={true}
@@ -187,12 +194,12 @@ export default function Events() {
               nextEl: ".events-next",
               prevEl: ".events-prev",
             }}
-            pagination={{
-              el: ".events-pagination",
-              clickable: true,
-              type: "bullets",
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
             }}
-            onSwiper={setSwiper}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.activeIndex);
+            }}
             className="events-swiper"
           >
             {filteredEvents.map((event) => (
@@ -270,7 +277,23 @@ export default function Events() {
             <span className="font-medium">{t("events.previous")}</span>
           </button>
           
-          <div className="events-pagination swiper-pagination"></div>
+          {/* Custom Pagination Dots */}
+          {filteredEvents.length > 1 && (
+            <div className="flex items-center justify-center gap-2">
+              {filteredEvents.map((_, index: number) => (
+                <button
+                  key={index}
+                  onClick={() => swiperRef.current?.slideTo(index)}
+                  className={`transition-all duration-300 cursor-pointer rounded-[3px] ${
+                    activeIndex === index
+                      ? "bg-white w-12 h-1.5"
+                      : "bg-purple-300/50 hover:bg-purple-300/70 w-12 h-1.5"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
           
           <button className="events-next flex items-center gap-3 text-white hover:text-white/80 transition-all group">
             <span className="font-medium">{t("events.next")}</span>
@@ -291,19 +314,15 @@ export default function Events() {
 
       <style>{`
         .events-swiper .swiper-slide {
-          transition: transform 0.3s ease, opacity 0.3s ease;
+          transition: opacity 0.3s ease, transform 0.3s ease;
         }
         
         .events-swiper .swiper-slide:not(.swiper-slide-active) {
           opacity: 0.5;
-          transform: scale(0.9);
-          z-index: 5;
         }
         
         .events-swiper .swiper-slide-active {
           opacity: 1;
-          transform: scale(1);
-          z-index: 10;
         }
         
         .events-swiper .events-prev,

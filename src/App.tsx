@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 import StrategicDirection from './components/StrategicDirection';
 import Opportunities from './components/Opportunities';
 import Destination from './components/Destination';
-import KeyStrategies from './components/KeyStrategies';
+// import KeyStrategies from './components/KeyStrategies';
 import Footer from './components/Footer';
 import Test from './components/Test';
 import InvestSectores from './components/InvestSectores';
@@ -40,7 +40,7 @@ function App() {
       <StrategicDirection />
       <Destination />
       <InvestSectores />
-      <KeyStrategies />
+      {/* <KeyStrategies /> */}
       <Test />
       <UniqueIncentives />
       <SuccessStories />

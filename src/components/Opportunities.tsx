@@ -118,7 +118,7 @@ export default function Opportunities() {
         ></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-5 relative z-10">
+      <div className="container mx-auto px-3 md:px-12 lg:px-5 relative z-10">
         {/* Title with dotted border */}
         <div className="pt-8 mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">

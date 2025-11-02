@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface SuccessStory {
   id: number;
@@ -86,7 +86,8 @@ const successStories: SuccessStory[] = [
 ];
 
 export default function SuccessStories() {
-  const [, setSwiper] = useState<SwiperType | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="relative w-full py-16 md:py-24 bg-[#08141f] overflow-hidden">
@@ -109,7 +110,7 @@ export default function SuccessStories() {
           className={`mb-8 md:mb-12 lg:mb-16 container mx-auto overflow-visible `}
         >
           <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation]}
             slidesPerView={0.92}
             spaceBetween={-900}
             breakpoints={{
@@ -138,12 +139,12 @@ export default function SuccessStories() {
               nextEl: ".success-stories-next",
               prevEl: ".success-stories-prev",
             }}
-            pagination={{
-              el: ".success-stories-pagination",
-              clickable: true,
-              type: "bullets",
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
             }}
-            onSwiper={setSwiper}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.activeIndex);
+            }}
             className="success-stories-swiper stacked-cards "
           >
             {successStories.map((story) => (
@@ -300,7 +301,23 @@ export default function SuccessStories() {
             <span className="text-sm font-medium sm:hidden">Prev</span>
           </button>
 
-          <div className="success-stories-pagination swiper-pagination order-1 sm:order-2"></div>
+          {/* Custom Pagination Dots */}
+          {successStories.length > 1 && (
+            <div className="flex items-center justify-center gap-2 order-1 sm:order-2">
+              {successStories.map((_, index: number) => (
+                <button
+                  key={index}
+                  onClick={() => swiperRef.current?.slideTo(index)}
+                  className={`transition-all duration-300 cursor-pointer rounded-[3px] ${
+                    activeIndex === index
+                      ? "bg-white w-12 h-1.5"
+                      : "bg-purple-300/50 hover:bg-purple-300/70 w-5 h-1.5"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
 
           <button className="success-stories-next text-white hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer order-3">
             <span className="text-sm md:text-base font-medium hidden sm:inline">

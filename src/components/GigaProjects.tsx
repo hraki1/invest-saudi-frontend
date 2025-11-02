@@ -547,16 +547,16 @@ export default function GigaProjects() {
         <div className="w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left Side - Project List */}
-            <div className="lg:col-span-6 xl:col-span-6 space-y-8 my-10 mx-10">
+            <div className="lg:col-span-6 xl:col-span-6 space-y-8 my-10 mx-5 md:mx-10">
               {/* Title */}
               <div>
-                <h1 className="text-6xl lg:text-7xl font-bold text-white mb-2 tracking-tight leading-tight">
+                <h1 className="text-4xl text-center md:text-left md:text-4xl lg:text-7xl font-bold text-white mb-2 tracking-tight leading-tight">
                   Giga Projects
                 </h1>
               </div>
 
               {/* Project List */}
-              <div className="space-y-3 p-3 md:p-8 lg:p-12 mx-auto">
+              <div className="space-y-3 p-1 md:p-8 lg:p-12 mx-auto">
                 {projects.map((project, index) => (
                   <button
                     key={project.id}
@@ -646,7 +646,7 @@ export default function GigaProjects() {
                     aria-label="Close project details"
                   >
                     <svg
-                      className="w-6 h-6"
+                      className="w-4 h-4 md:w-6 md:h-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"

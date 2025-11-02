@@ -213,7 +213,7 @@ export default function StrategicInvestorProgram() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-24">
+      <div className="relative z-10 container mx-auto px-3 md:px-12 lg:px-16 py-16 md:py-24">
         {/* Header Section */}
         <div className="mb-12 md:mb-16">
           <div className="flex items-start gap-6 md:gap-9 mb-6">
@@ -230,15 +230,22 @@ export default function StrategicInvestorProgram() {
 
             {/* Title and Subtitle */}
             <div className="flex-1">
-              <h2 className="text-4xl md:text-5xl lg:text-[48px] font-bold text-white mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-5xl lg:text-[48px] font-bold text-white mb-4 tracking-tight">
                 Strategic Investor Program (SIP)
               </h2>
-              <p className="text-base md:text-lg lg:text-2xl text-white/90 max-w-3xl leading-relaxed">
+              <p className="hidden md:block text-base md:text-lg lg:text-2xl text-white/90 max-w-3xl leading-relaxed">
                 Accelerate your impact. Access Saudi Arabia's premium investor
                 support system designed for global leaders and strategic
                 projects.
               </p>
             </div>
+          </div>
+          {/* Subtitle for Mobile App */}
+          <div className="flex justify-center md:hidden">         
+            <p className="text-center md:text-lg lg:text-2xl text-white/90 max-w-3xl leading-relaxed">
+              Accelerate your impact. Access Saudi Arabia's premium investor
+              support system designed for global leaders and strategic projects.
+            </p>
           </div>
         </div>
 

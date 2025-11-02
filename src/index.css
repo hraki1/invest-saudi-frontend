@@ -150,6 +150,21 @@
   opacity: 1 !important;
 }
 
+/* Events Swiper Slide Opacity Styles */
+.events-swiper .swiper-slide {
+  transition: opacity 0.3s ease !important;
+}
+
+.events-swiper .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.5 !important;
+  z-index: 1 !important;
+}
+
+.events-swiper .swiper-slide-active {
+  opacity: 1 !important;
+  z-index: 10 !important;
+}
+
 /* Success Stories Swiper Styles */
 .success-stories-swiper.stacked-cards {
   padding: 40px 0 80px 0 !important;
