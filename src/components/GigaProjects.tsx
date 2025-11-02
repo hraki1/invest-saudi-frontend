@@ -556,7 +556,7 @@ export default function GigaProjects() {
               </div>
 
               {/* Project List */}
-              <div className="space-y-3 p-12 mx-auto">
+              <div className="space-y-3 p-3 md:p-8 lg:p-12 mx-auto">
                 {projects.map((project, index) => (
                   <button
                     key={project.id}
