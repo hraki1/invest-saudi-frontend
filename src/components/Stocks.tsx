@@ -70,7 +70,7 @@ export default function Stocks() {
   }, [selectedStockType]);
 
   return (
-    <section className="relative py-2 bg-white overflow-x-hidden">
+    <section className="relative py-1.5 bg-white overflow-x-hidden">
       <div className="px-1 sm:px-6 md:px-12 lg:px-5 relative z-10">
         <div className="flex sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
           <div className="relative flex-shrink-0 w-auto">
@@ -120,7 +120,7 @@ export default function Stocks() {
                   strokeLinecap="round"
                 />
               </svg>
-              <span className=" hidden sm:block text-[#00A7A2] font-medium text-[13px] sm:text-sm md:text-base">
+              <span className=" hidden sm:block text-[#00A7A2] font-medium text-[12px] sm:text-sm md:text-base">
                 BN
               </span>
               <span className="text-gray-700 font-medium text-[12px] sm:text-sm md:text-base truncate max-w-[100px] sm:max-w-none">

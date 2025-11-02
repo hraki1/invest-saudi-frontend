@@ -150,7 +150,7 @@ export default function InvestSectores() {
         <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gradient-to-tl from-slate-50 to-transparent rounded-full blur-3xl opacity-50"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+      <div className="mx-auto px-4 sm:px-6 lg:px-14 xl:px-26 relative z-10">
         {/* Header */}
         <div className="mb-6 sm:mb-8 md:mb-10">
           <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -264,7 +264,7 @@ export default function InvestSectores() {
                     {sector.opportunities} opportunities
                   </p>
                   <h3
-                    className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold transition-colors duration-300 leading-tight break-words ${
+                    className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold transition-colors duration-300 leading-tight break-words ${
                       isActive(sector.id)
                         ? "text-[#00A7A2]"
                         : "text-slate-900 group-hover:text-[#00A7A2]/80"

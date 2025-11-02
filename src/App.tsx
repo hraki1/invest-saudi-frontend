@@ -33,6 +33,7 @@ function App() {
       {/* <Ahmad />
       <Orieb /> */}
       {/* <SaudiMap /> */}
+      <Miza />
       <GigaProjects />
       <StrategicInvestorProgram />
       <Opportunities />
@@ -43,7 +44,6 @@ function App() {
       <Test />
       <UniqueIncentives />
       <SuccessStories />
-      <Miza />
       <Events />
       <InvestorMatchmaking />
       <EServices />
