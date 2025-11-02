@@ -341,7 +341,7 @@ export default function Miza() {
                 </p>
 
                 {/* background image down right */}
-                <div className="absolute bottom-0 right-0 w-[300px] h-[400px] md:w-[400px] md:h-[550px] lg:w-[362px] lg:h-[535px] overflow-hidden">
+                <div className="absolute bottom-1 right-1 w-[300px] h-[400px] md:w-[400px] md:h-[550px] lg:w-[362px] lg:h-[535px] overflow-hidden">
                   <div
                     className="absolute inset-0 opacity-80"
                     style={{
