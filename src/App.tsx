@@ -5,7 +5,7 @@ import Opportunities from './components/Opportunities';
 import Destination from './components/Destination';
 // import KeyStrategies from './components/KeyStrategies';
 import Footer from './components/Footer';
-import Test from './components/Test';
+// import Test from './components/Test';
 // import InvestSectores from './components/InvestSectores';
 import RegulatoryAgreement from './components/RegulatoryAgreement';
 // import UniqueIncentives from './components/UniqueIncentives';
@@ -20,6 +20,7 @@ import EServices from './components/EServices';
 import Stocks from './components/Stocks';
 // import SaudiMap from './components/SaudiMap';
 import QRCard from './components/QRCards';
+import SupportAndContact from './components/SupportAndContact';
 import Chatbot from './components/Chatbot';
 // import Orieb from './components/Orieb';
 // import Ahmad from './components/ahmad';
@@ -43,11 +44,12 @@ function App() {
       <Destination />
       {/* <InvestSectores /> */}
       {/* <KeyStrategies /> */}
-      <Test />
+      {/* <Test /> */}
       {/* <UniqueIncentives /> */}
       {/* <InvestorMatchmaking /> */}
       {/* <NationalPrograms /> */}
       <RegulatoryAgreement />
+      <SupportAndContact />
       <QRCard />
       <Footer />
       <Chatbot />

@@ -70,7 +70,7 @@ export default function EServices() {
     const timer = setTimeout(() => {
       if (!mounted) return;
       setData({
-        pageTitle: "e-Services",
+        pageTitle: "E-Services",
         topTabs: [
           { id: "e_services", label: "e-Services", icon: "users" },
           { id: "process_explorer", label: "Process Explorer", icon: "file" },

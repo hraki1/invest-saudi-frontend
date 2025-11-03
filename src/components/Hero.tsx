@@ -5,6 +5,15 @@ import { PiMoneyWavyThin, PiGlobeStand } from "react-icons/pi";
 import { MdOutlineRocketLaunch, MdOutlineTrendingUp } from "react-icons/md";
 import type { ComponentType } from "react";
 
+// Icon mapping for rendering (maps string names to components)
+const iconComponents: Record<string, ComponentType<{ className?: string }>> = {
+  MdOutlineTrendingUp,
+  MdOutlineRocketLaunch,
+  PiGlobeStand,
+  PiMoneyWavyThin,
+  BsPersonVcard,
+};
+
 // Interfaces for Hero section data
 interface HeroBackgroundImage {
   src: string;
@@ -33,7 +42,7 @@ interface Hero {
   search: HeroSearch;
   actions: readonly string[];
   stats: HeroStat[];
-  iconMap: Record<string, ComponentType<{ className?: string }>>;
+  iconMap: string[];
 }
 
 // Hero section data object - prepared for API integration
@@ -82,14 +91,14 @@ const hero: Hero = {
       description: "Economy positioned as a global logistic and trade hub",
     },
   ],
-  // Icon mapping for API integration (icon names as strings can be mapped to components)
-  iconMap: {
-    MdOutlineTrendingUp,
-    MdOutlineRocketLaunch,
-    PiGlobeStand,
-    PiMoneyWavyThin,
-    BsPersonVcard,
-  },
+  // Icon mapping for API integration (icon names as strings)
+  iconMap: [
+    "MdOutlineTrendingUp",
+    "MdOutlineRocketLaunch",
+    "PiGlobeStand",
+    "PiMoneyWavyThin",
+    "BsPersonVcard",
+  ],
 };
 
 export default function Hero() {
@@ -156,7 +165,7 @@ export default function Hero() {
         <div className="hidden md:block relative z-10 bg-black/30 backdrop-blur-sm px-4 border-t border-white/10  ">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-3">
             {hero.stats.map((stat, index) => {
-              const IconComponent = hero.iconMap[stat.iconName];
+              const IconComponent = iconComponents[stat.iconName];
               return (
                 <div dir="ltr"
                   key={index}
