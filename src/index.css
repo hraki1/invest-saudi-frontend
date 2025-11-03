@@ -186,6 +186,8 @@
 
 .success-stories-swiper.stacked-cards .swiper-wrapper {
   align-items: center;
+  /* justify-content: start; */
+  margin: auto;
 }
 
 .success-stories-swiper.stacked-cards .stacked-slide {
@@ -194,7 +196,7 @@
 }
 
 .success-stories-swiper.stacked-cards .stacked-slide.swiper-slide-active {
-  transform: scale(1) !important;
+  transform: scale(1.05) !important;
   opacity: 1;
   z-index: 10;
   filter: brightness(1);
@@ -202,7 +204,7 @@
 
 .success-stories-swiper.stacked-cards .stacked-slide.swiper-slide-next {
   transform: scale(0.92) !important;
-  opacity: 0.85;
+  /* opacity: 0.85; */
   z-index: 5;
   filter: brightness(0.92);
   pointer-events: none;
@@ -210,15 +212,15 @@
 
 .success-stories-swiper.stacked-cards .stacked-slide.swiper-slide-prev {
   transform: scale(0.92) !important;
-  opacity: 0.85;
+  opacity: 0.80;
   z-index: 5;
   filter: brightness(0.92);
   pointer-events: none;
 }
 
 .success-stories-swiper.stacked-cards .stacked-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
-  transform: scale(0.88) !important;
-  opacity: 0.7;
+  transform: scale(0.8) !important;
+  opacity: 0.8;
   filter: brightness(0.85);
   z-index: 1;
   pointer-events: none;
