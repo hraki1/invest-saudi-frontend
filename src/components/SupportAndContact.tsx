@@ -54,13 +54,15 @@ export default function SupportAndContact() {
           className="relative rounded-2xl overflow-hidden mb-6 md:mb-8"
           style={{ boxShadow: "0 6px 20px rgba(0,0,0,0.06)" }}
         >
-          <div
-            className=" flex items-center justify-center h-56  md:h-72 lg:h-[371px] w-full"
-          >
-          <img src="/contact-support/flag.jpg" alt="Flag" className="w-[1442px] h-auto" />
+          <div className="relative w-full h-56 md:h-72 lg:h-[371px] overflow-hidden">
+            <img 
+              src="/contact-support/flag.jpg" 
+              alt="Flag" 
+              className="w-full h-full object-cover object-center" 
+            />
           </div>
           {/* Contact chips overlay */}
-          <div className="absolute bottom-4 left-4 flex flex-col md:flex-row gap-3 md:gap-6">
+          <div className="absolute bottom-4 left-4 flex flex-col md:flex-row gap-3 md:gap-6 z-10">
             {/* Left Column */}
             <div className="flex flex-col gap-3">
               {/* Globe Icon - Website/Toll-free */}
@@ -140,20 +142,20 @@ export default function SupportAndContact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-5">
             <input
               placeholder="Enter Subject"
-              className="h-11 rounded-lg border border-gray-300 px-3 outline-none focus:ring-2 focus:ring-purple-300"
+              className="h-11 rounded-lg border border-[#E3E8EF] px-3 outline-none focus:ring-2 focus:ring-purple-300"
             />
             <input
               type="email"
               placeholder="Enter Email"
-              className="h-11 rounded-lg border border-gray-300 px-3 outline-none focus:ring-2 focus:ring-purple-300"
+              className="h-11 rounded-lg border border-[#E3E8EF] px-3 outline-none focus:ring-2 focus:ring-purple-300"
             />
             <input
               placeholder="First Name"
-              className="h-11 rounded-lg border border-gray-300 px-3 outline-none focus:ring-2 focus:ring-purple-300"
+              className="h-11 rounded-lg border border-[#E3E8EF] px-3 outline-none focus:ring-2 focus:ring-purple-300"
             />
             <input
               placeholder="Last Name"
-              className="h-11 rounded-lg border border-gray-300 px-3 outline-none focus:ring-2 focus:ring-purple-300"
+              className="h-11 rounded-lg border border-[#E3E8EF] px-3 outline-none focus:ring-2 focus:ring-purple-300"
             />
 
             {/* Phone with country */}
@@ -169,7 +171,7 @@ export default function SupportAndContact() {
               <button
                 type="button"
                 onClick={() => setIsPurposeOpen(!isPurposeOpen)}
-                className="h-11 w-full rounded-lg border border-gray-300 px-3 bg-white outline-none focus:ring-2 focus:ring-purple-300 cursor-pointer flex items-center justify-between text-left"
+                className="h-11 w-full rounded-lg border border-[#E3E8EF] px-3 bg-white outline-none focus:ring-2 focus:ring-purple-300 cursor-pointer flex items-center justify-between text-left"
               >
                 <span className={purpose ? "text-gray-900" : "text-gray-400"}>
                   {selectedPurpose ? selectedPurpose.label : "Purpose of Contacting"}
@@ -208,22 +210,69 @@ export default function SupportAndContact() {
 
           <textarea
             placeholder="Enter Message"
-            className="w-full min-h-28 mb-2 rounded-lg border border-gray-300 p-3 outline-none focus:ring-2 focus:ring-purple-300"
+            className="w-full min-h-28 mb-2 rounded-lg border border-[#E3E8EF] p-3 outline-none focus:ring-2 focus:ring-purple-300"
           />
 
           {/* Upload */}
-          <div className="rounded-lg border border-gray-300 p-4 text-center">
-            <input id="upload-input" type="file" className="hidden" onChange={onFileChange} />
-            <button
-              type="button"
-              className="mx-auto inline-flex items-center gap-2 px-3 py-2 rounded-md border border-gray-300 text-sm"
-              onClick={() => document.getElementById("upload-input")?.click()}
-            >
-              <span>Click to upload</span>
-            </button>
-            <p className="mt-2 text-xs text-gray-500">
-              JPG, PNG, PDF, DOC. Max 5 MB. {fileName && `Selected: ${fileName}`}
+          <div 
+            className="rounded-lg p-8 border border-[#E3E8EF] text-center cursor-pointer  transition-colors"
+            onDragOver={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+            onDrop={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const files = e.dataTransfer.files;
+              if (files && files[0]) {
+                onFileChange({ target: { files } } as React.ChangeEvent<HTMLInputElement>);
+              }
+            }}
+            onClick={() => document.getElementById("upload-input")?.click()}
+          >
+            <input 
+              id="upload-input" 
+              type="file" 
+              className="hidden" 
+              onChange={onFileChange}
+              accept=".jpeg,.jpg,.png,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
+            />
+            
+            {/* Upload Icon */}
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 rounded-lg border-2 border-teal-400 flex items-center justify-center">
+                <svg 
+                  className="w-8 h-8 text-teal-400" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" 
+                  />
+                </svg>
+              </div>
+            </div>
+            
+            {/* Upload Text */}
+            <div className="mb-2">
+              <span className="text-teal-400 font-medium">Click to upload</span>
+              <span className="text-gray-500"> or drag and drop</span>
+            </div>
+            
+            {/* File Types */}
+            <p className="text-sm text-gray-500">
+              JPEG, PNG, PDF, DOC, PPT or XLS (Maximum file size allowed is 9MB)
             </p>
+            
+            {fileName && (
+              <p className="mt-3 text-sm text-teal-600 font-medium">
+                Selected: {fileName}
+              </p>
+            )}
           </div>
 
           <div className="mt-3">

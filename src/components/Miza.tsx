@@ -386,7 +386,7 @@ export default function Miza() {
       </div>
 
       {/* background image right down */}
-      <div className="absolute bottom-0 right-0 w-[300px] h-[400px] md:w-[400px] md:h-[550px] lg:w-[562px] lg:h-[635px] overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-[300px] h-[400px] md:w-[400px] md:h-[550px] lg:w-[562px] lg:h-[635px] overflow-hidden pointer-events-none">
         <div
           className="absolute inset-0 opacity-80"
           style={{
@@ -395,7 +395,7 @@ export default function Miza() {
             backgroundSize: "contain",
             backgroundPosition: "right bottom",
           }}
-        ></div>
+        />
       </div>
     </section>
   );
